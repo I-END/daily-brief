@@ -1,0 +1,102 @@
+name: daily-brief
+
+on:
+  schedule:
+    # GitHub 的定时用 UTC，而且常晚 10-30 分钟。两个时间点保证美东早上 6 点多都能触发
+    # （夏令时 10:17 UTC，冬令时 11:17 UTC）；run.py 会跳过早于 6 点或已生成的那次。
+    - cron: "17 10 * * *"
+    - cron: "17 11 * * *"
+    # 补跑：前两次都被 GitHub 丢掉时
+    - cron: "41 13 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "重新生成今天的日报"
+        type: boolean
+        default: false
+      fetch_only:
+        description: "只测试抓取（不调用 AI、不发布）"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily-brief
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.run.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - id: run
+        name: Fetch, summarize, render
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        run: |
+          if [ "${{ inputs.fetch_only }}" = "true" ]; then
+            python run.py --fetch-only
+          elif [ "${{ inputs.force }}" = "true" ]; then
+            python run.py --force --no-push
+          else
+            python run.py --no-push
+          fi
+      - name: Save today's digest to the repo
+        if: steps.run.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/digests
+          if ! git diff --cached --quiet; then
+            git commit -m "brief: $(TZ=America/New_York date +%F)"
+            git pull --rebase
+            git push
+          fi
+      - if: steps.run.outputs.changed == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  notify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}   # branch tip, so it includes the digest committed above
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Push to Feishu
+        env:
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          FEISHU_SECRET: ${{ secrets.FEISHU_SECRET }}
+          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        run: |
+          sleep 60   # GitHub Pages caches for a few minutes; give the new page a head start
+          python run.py --push-latest

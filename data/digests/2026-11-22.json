@@ -1,0 +1,654 @@
+{
+ "date": "2026-11-22",
+ "generated_at": "2026-11-22T04:38:47-05:00",
+ "must_know": [
+  {
+   "zh": "习近平、特朗普与普京在深圳APEC期间举行三方会晤。",
+   "en": "Xi Jinping, Donald Trump and Vladimir Putin held a trilateral meeting in Shenzhen during APEC.",
+   "topic": "us_china_world",
+   "index": 0,
+   "url": "https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20261121-%E5%BE%B7%E5%9B%BD-%E5%8D%97%E6%96%B9%E4%BF%A1%E4%BD%BF%E6%8A%A5-%E4%B8%AD%E7%BE%8E%E4%BF%84%E4%B8%89%E5%B7%A8%E5%A4%B4%E4%BC%9A%E6%99%A4%E6%88%90%E6%9E%9C%E5%AF%A5%E5%AF%A5%E6%97%A0%E5%87%A0"
+  },
+  {
+   "zh": "Lean与Mathlib社区确认，Anthropic数学家Alpöge借助Claude完成的黎曼猜想证明正确。",
+   "en": "The Lean and Mathlib communities confirmed that Anthropic mathematician Levent Alpöge's Claude-assisted proof of the Riemann Hypothesis is correct.",
+   "topic": "ai_tech",
+   "index": 0,
+   "url": "https://entrevue.fr/en/sciences-tech/intelligence-artificielle-un-chercheur-affirme-avoir-resolu-lenigme/"
+  },
+  {
+   "zh": "纳指跌超5%、英伟达跌14%，比特币跌破6万美元，金价跌近3500美元。",
+   "en": "The Nasdaq fell over 5% and Nvidia 14%, while bitcoin dropped below $60,000 and gold slid toward $3,500.",
+   "topic": "finance",
+   "index": 0,
+   "url": "https://wallstreetcn.com/articles/3786452"
+  }
+ ],
+ "topics": [
+  {
+   "id": "ai_tech",
+   "zh": "AI与科技",
+   "en": "AI & Tech",
+   "stories": [
+    {
+     "title_zh": "Lean社区确认AI辅助的黎曼猜想证明",
+     "title_en": "Lean community confirms AI-assisted Riemann Hypothesis proof",
+     "summary_zh": "Anthropic数学家Alpöge公布与Claude合作的黎曼猜想证明，Lean与Mathlib社区确认其正确；另有数学家公开不用AI的广义黎曼猜想证明。",
+     "summary_en": "Anthropic mathematician Levent Alpöge announced a Claude-assisted proof of the Riemann Hypothesis, which the Lean and Mathlib communities jointly confirmed as correct. Separately, mathematician Alessandro Maria Masullo released a non-AI proof of the generalized hypothesis.",
+     "links": [
+      {
+       "url": "https://entrevue.fr/en/sciences-tech/intelligence-artificielle-un-chercheur-affirme-avoir-resolu-lenigme/",
+       "label_zh": "Entrevue.fr",
+       "label_en": "Entrevue.fr",
+       "side": "us"
+      },
+      {
+       "url": "https://www.zhihu.com/question/2107620110105932525",
+       "label_zh": "知乎热榜",
+       "label_en": "Zhihu",
+       "side": "cn"
+      },
+      {
+       "url": "https://search.bilibili.com/all?keyword=%E7%94%A8AI%E8%BF%9E%E7%A0%B4%E5%8D%83%E7%A6%A7%E9%9A%BE%E9%A2%98%E8%83%BD%E6%8B%BF%E8%8F%B2%E5%A5%96%E5%90%97",
+       "label_zh": "B站热搜",
+       "label_en": "Bilibili",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "英伟达芯片输华丑闻曝新细节",
+     "title_en": "New details emerge in Nvidia chips-to-China scandal",
+     "summary_zh": "《华尔街日报》称，一名与Alice Huang有关联者被控向中国输送英伟达芯片；《纽约时报》称中国间谍早在该丑闻前多年就已盯上AI芯片。",
+     "summary_en": "The WSJ reports an associate of Alice Huang is accused of funneling Nvidia chips to China; the New York Times says Chinese spies targeted AI chips years before the scandal.",
+     "links": [
+      {
+       "url": "https://amp.dw.com/zh/%E6%AD%A7%E8%A7%86%E4%B8%8E%E5%81%8F%E8%A7%81%E9%BB%84%E4%BB%81%E5%8B%8B%E7%BB%AF%E9%97%BB%E6%B3%A2%E5%8F%8A%E7%BE%8E%E5%9B%BD%E4%BA%9A%E8%A3%94%E5%A5%B3%E6%80%A7/a-80005241",
+       "label_zh": "DW.com",
+       "label_en": "DW.com",
+       "side": "cn"
+      },
+      {
+       "url": "https://www.nytimes.com/2026/11/21/world/asia/china-nvidia-spy-chips-state-security.html",
+       "label_zh": "The New York Times",
+       "label_en": "The New York Times",
+       "side": "us"
+      },
+      {
+       "url": "https://www.wsj.com/tech/li-ming-megaspeed-nvidia-chips-china-6260d836",
+       "label_zh": "WSJ",
+       "label_en": "WSJ",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "贝森特：英伟达对华出口无需进一步限制",
+     "title_en": "Bessent says no further curbs needed on Nvidia chip exports to China",
+     "summary_zh": "贝森特表示，英伟达芯片对华出口无需进一步限制；另有报道称，随着AI芯片对华出货增长，美国半导体出口政策面临新挑战。",
+     "summary_en": "Bessent said no further restrictions are needed on Nvidia chip exports to China. A separate report says US chip export policy faces new challenges as AI chip shipments to China grow.",
+     "links": [
+      {
+       "url": "https://www.pbs.org/newshour/politics/bessent-says-no-further-restrictions-are-needed-for-nvidia-chip-exports-to-china",
+       "label_zh": "PBS",
+       "label_en": "PBS",
+       "side": "us"
+      },
+      {
+       "url": "https://www.tekedia.com/us-semiconductor-export-policy-faces-new-challenges-as-ai-chip-shipments-to-china-grow/",
+       "label_zh": "Tekedia",
+       "label_en": "Tekedia",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "亚马逊拟75亿美元收购以色列AI公司",
+     "title_en": "Amazon to acquire Israeli AI startup Decart for $7.5 billion",
+     "summary_zh": "据报道，亚马逊将以75亿美元收购以色列AI初创公司Decart。",
+     "summary_en": "Amazon will acquire Israeli AI startup Decart for $7.5 billion, according to a report.",
+     "links": [
+      {
+       "url": "https://www.chosun.com/english/industry-en/2026/11/22/VDJZFM6NQZH5TIFKK3UC3GUTKU/",
+       "label_zh": "조선일보",
+       "label_en": "조선일보",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "朱雀三号回收发动机全部完成试车",
+     "title_en": "Recovered Zhuque-3 engines pass re-firing tests, ready for reuse",
+     "summary_zh": "蓝箭航天20日称，此前首次陆地成功回收的朱雀三号遥二火箭9台发动机已全部完成点火试车，具备再次使用条件。",
+     "summary_en": "LandSpace said on the 20th that all nine engines from its land-recovered Zhuque-3 Y2 rocket have completed ignition tests and are fit for reuse.",
+     "links": [
+      {
+       "url": "https://www.zhihu.com/question/2107054180040959119",
+       "label_zh": "知乎热榜",
+       "label_en": "Zhihu",
+       "side": "cn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "finance",
+   "zh": "财经与市场",
+   "en": "Finance & Markets",
+   "stories": [
+    {
+     "title_zh": "纳指、英伟达、比特币与黄金齐跌",
+     "title_en": "Nasdaq, Nvidia, bitcoin and gold slide in cross-market selloff",
+     "summary_zh": "纳指跌超5%，英伟达跌14%，比特币跌破6万美元，金价跌近3500美元；Anthropic上市未能止住AI股抛售。",
+     "summary_en": "The Nasdaq fell over 5% and Nvidia 14%, bitcoin dropped below $60,000 and gold slid toward $3,500; Anthropic's IPO failed to halt the AI selloff.",
+     "links": [
+      {
+       "url": "https://wallstreetcn.com/articles/3786452",
+       "label_zh": "华尔街见闻",
+       "label_en": "华尔街见闻",
+       "side": "cn"
+      },
+      {
+       "url": "https://247wallst.com/investing/2026/11/21/nvidia-stock-has-crashed-48-and-now-trades-at-15-times-earnings-its-cheapest-in-more-than-a-decade-and-cheaper-than-microsoft-and-broadcom/",
+       "label_zh": "24/7 Wall St.",
+       "label_en": "24/7 Wall St.",
+       "side": "us"
+      },
+      {
+       "url": "https://seekingalpha.com/article/4970813-the-stock-market-is-declining-and-the-worst-may-be-yet-to-come",
+       "label_zh": "Seeking Alpha",
+       "label_en": "Seeking Alpha",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "荷兰法院裁定比亚迪Ti7侵权并禁售",
+     "title_en": "Dutch court bars BYD Ti7 sales in EU over Land Rover design",
+     "summary_zh": "海牙地区法院11月20日初步认定比亚迪Ti7侵犯捷豹路虎卫士外观设计，颁布临时禁令禁止其在欧盟销售该车型。",
+     "summary_en": "The Hague District Court preliminarily ruled on Nov. 20 that BYD's Ti7 infringes Jaguar Land Rover's Defender design and issued a temporary injunction banning its EU sales.",
+     "links": [
+      {
+       "url": "https://www.zhihu.com/question/2107417541236805904",
+       "label_zh": "知乎热榜",
+       "label_en": "Zhihu",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "台湾金管会宣布稳定股市措施",
+     "title_en": "Taiwan's financial regulator announces stock market stabilization measures",
+     "summary_zh": "台湾金管会宣布了稳定股市的措施。",
+     "summary_en": "Taiwan's Financial Supervisory Commission announced measures to stabilize the stock market.",
+     "links": [
+      {
+       "url": "https://wap.eastmoney.com/a/202611213936857159.html",
+       "label_zh": "东方财富网",
+       "label_en": "东方财富网",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "纳斯达克一天交易23小时",
+     "title_en": "Nasdaq's 23-hour trading day and its impact on China stocks",
+     "summary_zh": "21财经分析纳斯达克一天交易23小时对A股、H股可能产生的影响。",
+     "summary_en": "A 21st Century Business Herald report examines how Nasdaq trading 23 hours a day could affect A-shares and Hong Kong-listed H-shares.",
+     "links": [
+      {
+       "url": "https://www.21jingji.com/article/20261122/herald/41e463756f48643ee80e4390600451a0.html",
+       "label_zh": "21财经",
+       "label_en": "21财经",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "AI首次成为美联储纪要重要议题",
+     "title_en": "AI becomes a key topic in Fed minutes for the first time",
+     "summary_zh": "据报道，人工智能首次成为美联储政策纪要中的重要议题。",
+     "summary_en": "Artificial intelligence was a major topic in Federal Reserve policy minutes for the first time, a report says.",
+     "links": [
+      {
+       "url": "http://www.cb.com.cn/index/show/jj/cv/cv135418652065",
+       "label_zh": "中国经营网",
+       "label_en": "中国经营网",
+       "side": "cn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "us_china_world",
+   "zh": "中美关系与国际",
+   "en": "US-China & World",
+   "stories": [
+    {
+     "title_zh": "中美俄领导人在深圳APEC期间会晤",
+     "title_en": "Xi, Trump and Putin meet in Shenzhen during APEC",
+     "summary_zh": "习近平、特朗普、普京在深圳APEC期间举行三方会晤；特朗普称峰会有助维护美国安全，返美后连发30多张照片称赞深圳活力，德媒称成果寥寥。",
+     "summary_en": "Xi, Trump and Putin held a trilateral meeting in Shenzhen during APEC. Trump said it helps US security and posted over 30 photos recalling the trip; a German paper called the results meager.",
+     "links": [
+      {
+       "url": "https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20261121-%E5%BE%B7%E5%9B%BD-%E5%8D%97%E6%96%B9%E4%BF%A1%E4%BD%BF%E6%8A%A5-%E4%B8%AD%E7%BE%8E%E4%BF%84%E4%B8%89%E5%B7%A8%E5%A4%B4%E4%BC%9A%E6%99%A4%E6%88%90%E6%9E%9C%E5%AF%A5%E5%AF%A5%E6%97%A0%E5%87%A0",
+       "label_zh": "RFI",
+       "label_en": "RFI",
+       "side": "cn"
+      },
+      {
+       "url": "https://newsinamerica.com/en/breaking-news/2026/what-to-know-about-us-china-competition-as-trump-and-xi-meet-again-this-week/",
+       "label_zh": "Periódico Digital Centroamericano y del Caribe",
+       "label_en": "Periódico Digital Centroamericano y del Caribe",
+       "side": "us"
+      },
+      {
+       "url": "https://m.sohu.com/a/1104885730_122014422?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+       "label_zh": "Sohu",
+       "label_en": "Sohu",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "美FCC限制中国运营商取号，中方反对",
+     "title_en": "US FCC bars Chinese telecoms from phone numbers; Beijing objects",
+     "summary_zh": "美国FCC于美东时间11月19日投票通过规则，拟禁止中国电信、联通、移动等直接获取美国互联网电话号码资源；商务部称此举破坏中美经贸稳定局面，坚决反对。",
+     "summary_en": "The FCC voted Nov. 19 to bar China Telecom, China Unicom, China Mobile and other covered carriers from directly obtaining US phone numbers. China's commerce ministry firmly opposed it and vowed to defend its interests.",
+     "links": [
+      {
+       "url": "https://www.rfa.org/mandarin/zhengzhi/waijiao/2026/11/22/china-china-mobile-restrictions-on-chinese-companies-chips-sanctions-against-china/",
+       "label_zh": "Radio Free Asia",
+       "label_en": "Radio Free Asia",
+       "side": "cn"
+      },
+      {
+       "url": "https://www.scmp.com/news/china/diplomacy/article/3375364/beijing-vows-defend-interests-us-bars-chinese-telecoms-accessing-phone-numbers",
+       "label_zh": "South China Morning Post",
+       "label_en": "South China Morning Post",
+       "side": "us"
+      },
+      {
+       "url": "https://www.benzinga.com/news/politics/26/11/63516772/china-threatens-countermeasures-fcc-ban-chinese-telecom-carriers",
+       "label_zh": "Benzinga",
+       "label_en": "Benzinga",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "特朗普称将与伊朗达成永久性协议",
+     "title_en": "Trump says he will reach a permanent deal with Iran",
+     "summary_zh": "特朗普在当地时间21日播出的采访节目中说，将与伊朗达成一项永久性协议。",
+     "summary_en": "In an interview aired on the 21st, President Trump said he will reach a permanent agreement with Iran.",
+     "links": [
+      {
+       "url": "https://wallstreetcn.com/articles/3786448",
+       "label_zh": "华尔街见闻",
+       "label_en": "华尔街见闻",
+       "side": "cn"
+      },
+      {
+       "url": "https://www.chinanews.com.cn/gj/2026/11-22/10735946.shtml",
+       "label_zh": "中国新闻网",
+       "label_en": "中国新闻网",
+       "side": "cn"
+      },
+      {
+       "url": "https://www.zhihu.com/question/2107616621631988039",
+       "label_zh": "知乎热榜",
+       "label_en": "Zhihu",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "以色列停火后首次在加沙发动地面行动",
+     "title_en": "Israel launches first Gaza ground operation since ceasefire",
+     "summary_zh": "据半岛电视台，加沙宣布停火408天来，以色列已致至少1658名巴勒斯坦人死亡，并于本周实施停火后首次地面行动。",
+     "summary_en": "Al Jazeera says Israel has killed at least 1,658 Palestinians in Gaza in the 408 days since a ceasefire was declared, and this week carried out its first ground operation since.",
+     "links": [
+      {
+       "url": "https://www.youtube.com/watch?v=M3XNgBGDSL0",
+       "label_zh": "YouTube · Al Jazeera English",
+       "label_en": "YouTube · Al Jazeera English",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "COP31气候谈判因化石燃料陷僵局",
+     "title_en": "COP31 climate talks deadlocked over fossil fuels",
+     "summary_zh": "在土耳其举行的COP31联合国气候峰会因化石燃料分歧陷入僵局，谈判超时一天多后当晚暂停，可能无果而终。",
+     "summary_en": "UN climate talks at COP31 in Turkey are deadlocked over fossil fuels and were suspended for the night after running more than a day over time; they could end without agreement.",
+     "links": [
+      {
+       "url": "https://www.bjnews.com.cn/detail/1795182275129217.html",
+       "label_zh": "新京报",
+       "label_en": "新京报",
+       "side": "cn"
+      },
+      {
+       "url": "https://www.youtube.com/watch?v=HNU63uQw0Rc",
+       "label_zh": "YouTube · BBC News",
+       "label_en": "YouTube · BBC News",
+       "side": "us"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "china",
+   "zh": "中国要闻",
+   "en": "China",
+   "stories": [
+    {
+     "title_zh": "顺丰被暂停参加全军采购活动",
+     "title_en": "SF Express suspended from Chinese military procurement",
+     "summary_zh": "军队采购网11月19日公告，顺丰速运涉嫌存在违规问题，被暂停参加全军物资、工程和服务采购；未披露具体事项及期限。",
+     "summary_en": "China's military procurement website said on Nov. 19 that SF Express, suspected of violations, is suspended from all military procurement; the details and duration were not disclosed.",
+     "links": [
+      {
+       "url": "https://www.zhihu.com/question/2107442131073593760",
+       "label_zh": "知乎热榜",
+       "label_en": "Zhihu",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "主播私闯果园带货糟蹋千斤苹果",
+     "title_en": "Streamer trespasses orchard, ruins over 1,000 jin of apples",
+     "summary_zh": "一名主播私闯果园直播带货，糟蹋一千多斤苹果，涉事主播已作出回应。",
+     "summary_en": "A livestreamer trespassed into an orchard while selling goods online and ruined more than 1,000 jin of apples; the streamer has responded.",
+     "links": [
+      {
+       "url": "https://s.weibo.com/weibo?q=%23%E4%B8%BB%E6%92%AD%E7%A7%81%E9%97%AF%E6%9E%9C%E5%9B%AD%E5%B8%A6%E8%B4%A7%E7%B3%9F%E8%B9%8B%E4%B8%80%E5%8D%83%E5%A4%9A%E6%96%A4%E8%8B%B9%E6%9E%9C%23&t=31&band_rank=1&Refer=top",
+       "label_zh": "微博热搜",
+       "label_en": "Weibo",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "李子柒当选四川省文联副主席",
+     "title_en": "Li Ziqi elected vice chair of Sichuan arts federation",
+     "summary_zh": "四川省文联第九次代表大会11月20日在成都闭幕，文化类视频创作者李子柒新当选副主席，陈智林连任主席。",
+     "summary_en": "Video creator Li Ziqi was elected a vice chair of the Sichuan Federation of Literary and Art Circles at its congress, which closed in Chengdu on Nov. 20.",
+     "links": [
+      {
+       "url": "https://www.zhihu.com/question/2107187453836650425",
+       "label_zh": "知乎热榜",
+       "label_en": "Zhihu",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "习近平思想海外研究国际论坛举行",
+     "title_en": "Beijing hosts international forum on overseas study of Xi Jinping Thought",
+     "summary_zh": "习近平新时代中国特色社会主义思想海外研究国际论坛（2026）在北京举行，李书磊出席开幕式并发表主旨演讲；另在塔什干、布达佩斯举行专题论坛。",
+     "summary_en": "The 2026 international forum on overseas studies of Xi Jinping Thought was held in Beijing, with a keynote by Li Shulei; themed forums were also held in Tashkent and Budapest.",
+     "links": [
+      {
+       "url": "http://www.wenming.cn/20261121/bef93429e5694d47a374784b928a3349/c.html",
+       "label_zh": "中国文明网",
+       "label_en": "中国文明网",
+       "side": "cn"
+      },
+      {
+       "url": "https://news.cctv.com/2026/11/22/ARTIRykXubtyedh6iZTQJ51F261122.shtml",
+       "label_zh": "央视网",
+       "label_en": "央视网",
+       "side": "cn"
+      },
+      {
+       "url": "http://world.people.com.cn/n1/2026/1122/c1002-40838174.html",
+       "label_zh": "人民网",
+       "label_en": "人民网",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "记者曝光广西非法狩猎案",
+     "title_en": "Reporter exposes illegal hunting case in Guangxi",
+     "summary_zh": "有记者曝光广西一起非法狩猎案件。",
+     "summary_en": "A reporter exposed an illegal hunting case in Guangxi.",
+     "links": [
+      {
+       "url": "https://search.bilibili.com/all?keyword=%E8%AE%B0%E8%80%85%E6%9B%9D%E5%85%89%E5%B9%BF%E8%A5%BF%E9%9D%9E%E6%B3%95%E7%8B%A9%E7%8C%8E%E6%A1%88",
+       "label_zh": "B站热搜",
+       "label_en": "Bilibili",
+       "side": "cn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "us",
+   "zh": "美国要闻",
+   "en": "United States",
+   "stories": [
+    {
+     "title_zh": "特朗普令联邦承包商回应国会前须报白宫",
+     "title_en": "Trump orders contractors to check with White House before answering Congress",
+     "summary_zh": "特朗普签署行政令，要求联邦承包商在回应国会信息请求前先与白宫协调；《纽约时报》等称此举限制国会对承包商的监督。",
+     "summary_en": "A new Trump executive order requires federal contractors to coordinate with the White House before answering congressional requests for information, a move reports say restricts congressional oversight.",
+     "links": [
+      {
+       "url": "https://www.npr.org/2026/11/21/g-s1-154966/trump-contractors-congress",
+       "label_zh": "NPR",
+       "label_en": "NPR",
+       "side": "us"
+      },
+      {
+       "url": "https://www.washingtonpost.com/politics/2026/11/21/trump-white-house-orders-contractors-limit-information-shared-with-congress/",
+       "label_zh": "The Washington Post",
+       "label_en": "The Washington Post",
+       "side": "us"
+      },
+      {
+       "url": "https://www.crowell.com/en/insights/client-alerts/new-executive-order-protecting-the-executives-privileges-and-enhancing-efficiencies-in-federal-contracting",
+       "label_zh": "Crowell & Moring LLP",
+       "label_en": "Crowell & Moring LLP",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "FBI调查犯罪信息数据库疑遭入侵",
+     "title_en": "FBI investigates suspected breach of national crime database",
+     "summary_zh": "FBI正调查其国家犯罪信息中心（NCIC）数据库疑遭入侵事件，该库供全美执法机构使用；特朗普淡化事件严重性。",
+     "summary_en": "The FBI is investigating a suspected breach of its National Crime Information Center, a database used by law enforcement nationwide; President Trump downplayed its significance.",
+     "links": [
+      {
+       "url": "https://www.youtube.com/shorts/ShLjolXiag0",
+       "label_zh": "YouTube · CNN",
+       "label_en": "YouTube · CNN",
+       "side": "us"
+      },
+      {
+       "url": "https://www.youtube.com/shorts/teLy8yE6asU",
+       "label_zh": "YouTube · NBC News",
+       "label_en": "YouTube · NBC News",
+       "side": "us"
+      },
+      {
+       "url": "https://www.youtube.com/watch?v=V-f2hnjsTCk",
+       "label_zh": "YouTube · DW News",
+       "label_en": "YouTube · DW News",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "中国出生的普林斯顿研究生遭ICE拘留",
+     "title_en": "ICE detains Chinese-born Princeton graduate student",
+     "summary_zh": "一名中国出生的普林斯顿大学神经科学研究生在华盛顿特区一机场被联邦移民当局拘留。",
+     "summary_en": "A Chinese-born neuroscience graduate student at Princeton University was detained by federal immigration authorities at a Washington, D.C., airport.",
+     "links": [
+      {
+       "url": "https://www.youtube.com/shorts/BJgI_A964eU",
+       "label_zh": "YouTube · ABC News",
+       "label_en": "YouTube · ABC News",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "第二名法官叫停特朗普华盛顿纪念拱门",
+     "title_en": "Second judge blocks Trump's memorial arch in Washington",
+     "summary_zh": "又一名联邦法官叫停特朗普在华盛顿修建纪念拱门，弗吉尼亚州法官称该项目是“仓促之作”。",
+     "summary_en": "A second federal judge blocked construction of President Trump's memorial arch in Washington, D.C., with the Virginia judge calling the project a “rushed job.”",
+     "links": [
+      {
+       "url": "https://www.youtube.com/shorts/TRIKex7gJ5U",
+       "label_zh": "YouTube · PBS NewsHour",
+       "label_en": "YouTube · PBS NewsHour",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "丰田和本田因气囊问题召回数百万辆车",
+     "title_en": "Toyota and Honda recall millions of vehicles over airbags",
+     "summary_zh": "丰田和本田因气囊问题召回数百万辆汽车。",
+     "summary_en": "Toyota and Honda are recalling millions of vehicles over airbag problems.",
+     "links": [
+      {
+       "url": "https://www.youtube.com/shorts/bv2MFR-7USw",
+       "label_zh": "YouTube · NBC News",
+       "label_en": "YouTube · NBC News",
+       "side": "us"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hot": {
+  "cn": [
+   {
+    "zh": "今日小雪节气",
+    "en": "Xiaoxue (Minor Snow) solar term today",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://www.douyin.com/hot/2758171",
+    "platforms_zh": "抖音热榜",
+    "platforms_en": "Douyin"
+   },
+   {
+    "zh": "主播私闯果园糟蹋千斤苹果",
+    "en": "Streamer trespasses orchard, ruins 1,000+ jin of apples",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://s.weibo.com/weibo?q=%23%E4%B8%BB%E6%92%AD%E7%A7%81%E9%97%AF%E6%9E%9C%E5%9B%AD%E5%B8%A6%E8%B4%A7%E7%B3%9F%E8%B9%8B%E4%B8%80%E5%8D%83%E5%A4%9A%E6%96%A4%E8%8B%B9%E6%9E%9C%23&t=31&band_rank=1&Refer=top",
+    "platforms_zh": "微博热搜",
+    "platforms_en": "Weibo"
+   },
+   {
+    "zh": "Lean社区确认黎曼猜想证明",
+    "en": "Lean community confirms Riemann Hypothesis proof",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://www.zhihu.com/question/2107620110105932525",
+    "platforms_zh": "知乎热榜、B站热搜",
+    "platforms_en": "Zhihu, Bilibili"
+   },
+   {
+    "zh": "多国领导人表态恪守一个中国原则",
+    "en": "Multiple national leaders affirm the one-China principle",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://search.bilibili.com/all?keyword=%E5%A4%9A%E5%9B%BD%E9%A2%86%E5%AF%BC%E4%BA%BA%E5%B0%B1%E4%B8%80%E4%B8%AA%E4%B8%AD%E5%9B%BD%E5%8E%9F%E5%88%99%E6%98%8E%E7%A1%AE%E8%A1%A8%E6%80%81",
+    "platforms_zh": "B站热搜、抖音热榜",
+    "platforms_en": "Bilibili, Douyin"
+   },
+   {
+    "zh": "76人送雄鹿13连败",
+    "en": "76ers hand Bucks 13th straight loss",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://www.douyin.com/hot/2758190",
+    "platforms_zh": "抖音热榜",
+    "platforms_en": "Douyin"
+   }
+  ],
+  "us": [
+   {
+    "zh": "博伊西州立大学",
+    "en": "Boise State",
+    "note_zh": "美国大学橄榄球队",
+    "note_en": "Boise State Broncos, a US college football team",
+    "url": "https://x.com/search?q=Boise%20State",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   },
+   {
+    "zh": "#拉斯维加斯大奖赛",
+    "en": "#LasVegasGP",
+    "note_zh": "F1拉斯维加斯站，维斯塔潘夺冠",
+    "note_en": "F1 Las Vegas Grand Prix, won by Max Verstappen",
+    "url": "https://x.com/search?q=%23LasVegasGP",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   },
+   {
+    "zh": "圣迭戈州立大学",
+    "en": "San Diego State (SDSU)",
+    "note_zh": "美国大学体育队，绰号阿兹特克人",
+    "note_en": "San Diego State Aztecs, US college sports teams",
+    "url": "https://x.com/search?q=SDSU",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   },
+   {
+    "zh": "奥斯卡",
+    "en": "Oscar",
+    "note_zh": "F1车手皮亚斯特里，拉斯维加斯站第三",
+    "note_en": "F1 driver Oscar Piastri, third at the Las Vegas GP",
+    "url": "https://x.com/search?q=Oscar",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   },
+   {
+    "zh": "勒克莱尔",
+    "en": "Leclerc",
+    "note_zh": "法拉利车手，拉斯维加斯站第十",
+    "note_en": "Ferrari driver Charles Leclerc, 10th at the Las Vegas GP",
+    "url": "https://x.com/search?q=Leclerc",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   }
+  ]
+ },
+ "stats": {
+  "model": "Claude（首期试运行）",
+  "item_count": 283,
+  "sources": {
+   "douyin": 30,
+   "weibo": 30,
+   "zhihu": 20,
+   "bilibili": 20,
+   "x_trends": 30,
+   "youtube": 38,
+   "news:ai_tech:zh": 12,
+   "news:ai_tech:en": 12,
+   "news:finance:zh": 12,
+   "news:finance:en": 12,
+   "news:us_china_world:zh": 12,
+   "news:us_china_world:en": 12,
+   "news:china:zh": 12,
+   "news:china:en": 12,
+   "news:us:zh": 12,
+   "news:us:en": 12
+  },
+  "failed_zh": [],
+  "failed_en": []
+ }
+}

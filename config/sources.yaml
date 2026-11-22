@@ -1,0 +1,51 @@
+# 信息源。enabled: false 就是关掉；limit 是每个源最多取几条。
+
+# 中国平台热榜（都不用登录）
+hot_lists:
+  douyin:   { enabled: true, limit: 30 }   # 抖音热榜
+  weibo:    { enabled: true, limit: 30 }   # 微博热搜
+  zhihu:    { enabled: true, limit: 20 }   # 知乎热榜
+  bilibili: { enabled: true, limit: 20 }   # B站热搜
+
+# X（推特）美国趋势榜，来自 trends24.in，免费。
+# 关注具体博主需要付费 X API，暂不开启。
+x_trends: { enabled: true, limit: 30 }
+
+# YouTube：只看下面这些频道最近的视频（频道订阅源，免费，不需要 key）。
+# 加频道：打开频道主页 → 查看页面源代码 → 搜 "externalId" 后面那串 UC 开头的 id。
+# side: cn = 中文/中国视角，us = 美国/英文视角
+youtube:
+  enabled: true
+  max_age_hours: 30
+  per_channel: 3
+  channels:
+    # 美国新闻
+    - { name: CNN, id: UCupvZG-5ko_eiXAupbDfxWw, side: us }
+    - { name: NBC News, id: UCeY0bbntWzzVIaj2z3QigXg, side: us }
+    - { name: ABC News, id: UCBi2mrWuNuyYy4gbM6fU18Q, side: us }
+    - { name: PBS NewsHour, id: UC6ZFN9Tx6xh-skXCuRHCDpQ, side: us }
+    - { name: WSJ News, id: UCMliswJ7oukCeW35GSayhRA, side: us }
+    # 财经
+    - { name: Bloomberg Television, id: UCIALMKvObZNtJ6AmdCLP7Lg, side: us }
+    - { name: CNBC Television, id: UCrp_UI8XtuYfpiqluWLD7Lw, side: us }
+    - { name: Yahoo Finance, id: UCEAZeUIeJs0IjQiqTCdVSIg, side: us }
+    # AI 与科技
+    - { name: Two Minute Papers, id: UCbfYPyITQ-7l4upoX8nvctg, side: us }
+    - { name: AI Explained, id: UCNJ1Ymd5yFuUPtn21xtRbbw, side: us }
+    - { name: Fireship, id: UCsBjURrPoezykLs9EqgamOA, side: us }
+    - { name: Marques Brownlee, id: UCBJycsmduvYEL83R_U4JriQ, side: us }
+    - { name: WIRED, id: UCftwRNsjfRo08xYE31tkiyw, side: us }
+    # 国际
+    - { name: Reuters, id: UChqUTb7kYRX8-EiaN3XFrSQ, side: us }
+    - { name: BBC News, id: UC16niRr50-MSBwiO3YDb3RA, side: us }
+    - { name: DW News, id: UCknLrEdhRCp1aegoMqRaCZg, side: us }
+    - { name: Al Jazeera English, id: UCNye-wNBqNL5ZzHSJj3l8Bg, side: us }
+    - { name: The Economist, id: UC0p5jTq6Xx_DosDFxVXnWaQ, side: us }
+    # 中文 / 中国视角
+    - { name: CGTN, id: UCgrNz-aDmcr2uuto8_DL2jg, side: cn }
+    - { name: BBC News 中文, id: UCb3TZ4SD_Ys3j4z0-8o6auA, side: cn }
+    - { name: DW 中文, id: UC99XkAM3Y82ONvdpwUYmOZg, side: cn }
+
+# Google News：按 topics.yaml 里每个话题的搜索词，中文区、美国区各搜一次（只要过去 24 小时）。
+# 热榜上往往只有一句标题，靠这些报道给 AI 补背景，也当来源链接。
+google_news: { enabled: true, per_query: 12 }

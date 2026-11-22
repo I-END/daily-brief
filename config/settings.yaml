@@ -1,0 +1,33 @@
+# 每日简报的基础设置。改完提交到 GitHub，下一次运行生效。
+
+site:
+  title_zh: 每日简报
+  title_en: Daily Brief
+  # 网站地址。云端运行时自动用 https://<用户名>.github.io/<仓库名>/，一般不用填。
+  # 以后换成自己的域名，就填在这里，例如 https://news.example.com/
+  url: ""
+  archive_days: 30          # 页面底部显示最近多少天的往期
+
+# 按这个时区算"今天"和"几点"
+timezone: America/New_York
+# 定时任务会在当地 6 点多触发；早于这个钟点的触发会被跳过（用来对付夏令时）
+run_after_hour: 6
+
+digest:
+  per_topic: 5              # 每个话题最多几条
+  must_know: 3              # 顶部"今日必知"几条
+  hot_top: 5                # 中美热搜各显示几条
+  links_per_story: 3        # 每条新闻最多几个来源链接
+  card_per_topic: 3         # 飞书卡片里每个话题显示几条（完整的在网站上）
+
+llm:
+  # 任何 OpenAI 兼容接口都行。换模型只改这三行，再把对应的 key 存进 GitHub Secrets。
+  base_url: https://api.deepseek.com
+  model: deepseek-flash
+  api_key_env: DEEPSEEK_API_KEY
+  temperature: 0.3
+  max_tokens: 16000
+  # 额外请求参数：关掉 DeepSeek 的"思考模式"，更快更省。接口不认就会自动去掉重试。
+  extra:
+    thinking:
+      type: disabled

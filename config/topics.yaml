@@ -1,0 +1,52 @@
+# 你关心的话题。增删话题就改这个文件（在 GitHub 网页上点铅笔图标就能改），第二天生效。
+#
+# 每个话题：
+#   id          英文小写，不能重复
+#   zh / en     中英文名字（显示在网页和飞书卡片上）
+#   about       给 AI 看的说明：什么算这个话题、什么不算
+#   news_zh     Google News 中文搜索词（用 OR 连接多个词），留空就不搜
+#   news_en     Google News 英文搜索词
+#
+# 加一个新话题的例子（去掉 # 号）：
+#  - id: nvidia
+#    zh: 英伟达
+#    en: Nvidia
+#    about: 英伟达公司、黄仁勋、GPU 与 AI 芯片
+#    news_zh: 英伟达 OR 黄仁勋
+#    news_en: Nvidia OR Jensen Huang
+
+topics:
+  - id: ai_tech
+    zh: AI与科技
+    en: AI & Tech
+    about: 人工智能、大模型、芯片与半导体、科技公司、互联网产品、科学突破。不含普通数码评测和游戏。
+    news_zh: 人工智能 OR 大模型 OR 芯片 OR 科技公司
+    news_en: artificial intelligence OR AI model OR semiconductor OR big tech
+
+  - id: finance
+    zh: 财经与市场
+    en: Finance & Markets
+    about: 股市、债市、汇率、央行与利率、宏观经济数据、大公司财报与并购、加密货币大事。
+    news_zh: 股市 OR 经济 OR 央行 OR A股 OR 财报
+    news_en: stock market OR economy OR Federal Reserve OR earnings
+
+  - id: us_china_world
+    zh: 中美关系与国际
+    en: US-China & World
+    about: 中美关系、关税与贸易、外交、战争与冲突、国际组织、其他国家的重大事件。
+    news_zh: 中美 OR 关税 OR 外交部 OR 国际局势
+    news_en: US China OR tariffs OR diplomacy OR war
+
+  - id: china
+    zh: 中国要闻
+    en: China
+    about: 中国国内的政策、社会、民生、重大事件和舆论热点（纯娱乐八卦除外）。
+    news_zh: 国务院 OR 中国 政策 OR 社会
+    news_en: China
+
+  - id: us
+    zh: 美国要闻
+    en: United States
+    about: 美国国内的政治、政策、社会、重大事件和舆论热点（纯娱乐八卦和体育比分除外）。
+    news_zh: 美国 OR 特朗普 OR 白宫
+    news_en: White House OR Congress OR U.S.
