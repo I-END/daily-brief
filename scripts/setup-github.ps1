@@ -49,8 +49,13 @@ foreach ($name in "DEEPSEEK_API_KEY", "FEISHU_WEBHOOK", "FEISHU_SECRET") {
     if ($have -match "(?m)^$name\s") { Write-Host "$name 已存在（要改就运行：gh secret set $name -R $login/$repo）"; continue }
     $v = Read-Host -AsSecureString "粘贴 $name（没有就直接回车）"
     $plain = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($v))
-    if ($plain) { gh secret set $name -R "$login/$repo" --body $plain; Write-Host "已保存 $name" }
+    $plain = "$plain".Trim()
+    if (-not $plain) { Write-Host "跳过 $name"; continue }
+    gh secret set $name -R "$login/$repo" --body $plain
+    if ($LASTEXITCODE -eq 0) { Write-Host "已保存 $name" -ForegroundColor Green } else { Write-Host "$name 保存失败" -ForegroundColor Red }
 }
+Write-Host "GitHub 上现在有这些密钥："
+gh secret list -R "$login/$repo"
 
 # 6. 立刻跑一次
 gh workflow run daily.yml -R "$login/$repo" -f force=true
