@@ -16,6 +16,7 @@ import os
 import sys
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlsplit, urlunsplit
 from zoneinfo import ZoneInfo
 
 import yaml
@@ -54,7 +55,11 @@ def set_output(key, value):
 
 
 def site_url(settings):
-    return settings["site"].get("url") or os.environ.get("SITE_URL", "")
+    url = settings["site"].get("url") or os.environ.get("SITE_URL", "")
+    if not url:
+        return ""
+    p = urlsplit(url)  # GitHub owner names can be upper-case; Pages hosts are lower-case
+    return urlunsplit(p._replace(netloc=p.netloc.lower()))
 
 
 def push_latest(settings):

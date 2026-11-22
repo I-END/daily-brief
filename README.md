@@ -51,6 +51,7 @@ powershell -ExecutionPolicy Bypass -File scripts\setup-github.ps1
 | 生成时间 | `.github/workflows/daily.yml` 的 `cron`（UTC 时间）和 `settings.yaml` 的 `run_after_hour` |
 
 **马上重新生成一次**：GitHub 仓库 → Actions → daily-brief → Run workflow（勾上「重新生成今天的日报」）。
+**只测试飞书**：同一个地方勾「只把最新一期推送到飞书」，不会调用 AI。
 
 **网页上选话题**：点顶部的话题标签就能隐藏/显示，会记住你的选择。
 

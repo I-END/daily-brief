@@ -18,6 +18,10 @@ on:
         description: "只测试抓取（不调用 AI、不发布）"
         type: boolean
         default: false
+      push_only:
+        description: "只把最新一期推送到飞书（测试飞书用）"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -30,6 +34,7 @@ concurrency:
 
 jobs:
   build:
+    if: ${{ !inputs.push_only }}
     runs-on: ubuntu-latest
     outputs:
       changed: ${{ steps.run.outputs.changed }}
@@ -82,6 +87,8 @@ jobs:
 
   notify:
     needs: deploy
+    # after a successful deploy, or on its own when only testing Feishu
+    if: ${{ always() && (needs.deploy.result == 'success' || inputs.push_only) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
