@@ -1,0 +1,706 @@
+{
+ "date": "2026-11-27",
+ "generated_at": "2026-11-27T08:59:25-05:00",
+ "must_know": [],
+ "topics": [
+  {
+   "id": "ai_tech",
+   "zh": "AI与科技",
+   "en": "AI & Tech",
+   "stories": [
+    {
+     "title_zh": "人工智能全球治理面临哪些现实挑战",
+     "title_en": "人工智能全球治理面临哪些现实挑战",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.qstheory.cn/20261127/c0bcb963b27a46b598c1190ae5e2aa17/c.html",
+       "label_zh": "求是",
+       "label_en": "求是",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "Big Tech Is Creating AI ‘Communities of Interest’ Without Board Seats or Voting Rights",
+     "title_en": "Big Tech Is Creating AI ‘Communities of Interest’ Without Board Seats or Voting Rights",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.promarket.org/2026/11/27/big-tech-is-creating-ai-communities-of-interest-without-board-seats-or-voting-rights/",
+       "label_zh": "ProMarket",
+       "label_en": "ProMarket",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "第49期人机沙龙共探“生成式AI下的双重权利框架：数据安全与知识产权协同治理”",
+     "title_en": "第49期人机沙龙共探“生成式AI下的双重权利框架：数据安全与知识产权协同治理”",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.lg.gov.cn/lgjqrs/gkmlpt/content/13/13081/post_13081793.html",
+       "label_zh": "龙岗政府在线",
+       "label_en": "龙岗政府在线",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "Why did an AI chip frenzy send a Chinese blender maker’s stock soaring 370%?",
+     "title_en": "Why did an AI chip frenzy send a Chinese blender maker’s stock soaring 370%?",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.scmp.com/tech/tech-trends/article/3376026/why-did-ai-chip-frenzy-send-chinese-blender-makers-stock-soaring-390",
+       "label_zh": "South China Morning Post",
+       "label_en": "South China Morning Post",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "福建教育学院举办人工智能赋能基础教育高质量发展学术研讨会",
+     "title_en": "福建教育学院举办人工智能赋能基础教育高质量发展学术研讨会",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "http://www.jyb.cn/rmtxwwyyq/jyxx1306/202611/t20261127_2111547697.html",
+       "label_zh": "中国教育新闻网",
+       "label_en": "中国教育新闻网",
+       "side": "cn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "finance",
+   "zh": "财经与市场",
+   "en": "Finance & Markets",
+   "stories": [
+    {
+     "title_zh": "A股指数，重要调整",
+     "title_en": "A股指数，重要调整",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://wap.eastmoney.com/a/202611273941987760.html",
+       "label_zh": "东方财富",
+       "label_en": "东方财富",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "Wall St Week Ahead Sliding stock market confronts jobs data, rate view as next tests",
+     "title_en": "Wall St Week Ahead Sliding stock market confronts jobs data, rate view as next tests",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.reuters.com/business/wall-st-week-ahead-sliding-stock-market-confronts-jobs-data-rate-view-next-tests-2026-11-27/",
+       "label_zh": "Reuters",
+       "label_en": "Reuters",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "中国经济面面观丨赛事经济站上新风口：一场比赛究竟有多“吸金”？",
+     "title_en": "中国经济面面观丨赛事经济站上新风口：一场比赛究竟有多“吸金”？",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.news.cn/20261127/0d1c6b23811f48d0bc7aa7298b2188b2/c.html",
+       "label_zh": "新华网",
+       "label_en": "新华网",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "Federal Reserve raises interest rates for the 1st time since 2023",
+     "title_en": "Federal Reserve raises interest rates for the 1st time since 2023",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://abcnews.com/Business/federal-reserve-expected-raise-interest-rates-time-2023/story?id=136457761",
+       "label_zh": "ABC News - Breaking News, Latest News and Videos",
+       "label_en": "ABC News - Breaking News, Latest News and Videos",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "上财智能经济论坛圆满举办 聚焦智能经济时代职业与就业",
+     "title_en": "上财智能经济论坛圆满举办 聚焦智能经济时代职业与就业",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "http://jjckb.xinhuanet.com/20261127/dcf1497d3fa14512a54e1017dc61d9db/c.html",
+       "label_zh": "经济参考报",
+       "label_en": "经济参考报",
+       "side": "cn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "us_china_world",
+   "zh": "中美关系与国际",
+   "en": "US-China & World",
+   "stories": [
+    {
+     "title_zh": "为何特朗普新一轮关税的威胁不如以往？",
+     "title_en": "为何特朗普新一轮关税的威胁不如以往？",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.bbc.com/zhongwen/articles/c3j4rw1r4p29o/simp",
+       "label_zh": "BBC",
+       "label_en": "BBC",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "Iran accused of deadly drone attack in Kuwait that sparks EU call to step up pressure on Tehran",
+     "title_en": "Iran accused of deadly drone attack in Kuwait that sparks EU call to step up pressure on Tehran",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.cbsnews.com/live-updates/iran-war-us-military-ai-weapons-oil/",
+       "label_zh": "CBS News",
+       "label_en": "CBS News",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "外交部部长助理刘彬会见亚美尼亚驻华大使格沃尔克扬",
+     "title_en": "外交部部长助理刘彬会见亚美尼亚驻华大使格沃尔克扬",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.mfa.gov.cn/wjbxw_new/202611/t20261127_12068166.shtml",
+       "label_zh": "中华人民共和国外交部",
+       "label_en": "中华人民共和国外交部",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "The U.S.-China Endgame on AI",
+     "title_en": "The U.S.-China Endgame on AI",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.foreignaffairs.com/china/ai-us-china-endgame-tech-catastrophe-sheehan-singer",
+       "label_zh": "Foreign Affairs",
+       "label_en": "Foreign Affairs",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "弦子的山海经｜停不下来的“美国关税”",
+     "title_en": "弦子的山海经｜停不下来的“美国关税”",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.shobserver.com/news/detail?id=1221166",
+       "label_zh": "上观新闻",
+       "label_en": "上观新闻",
+       "side": "cn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "china",
+   "zh": "中国要闻",
+   "en": "China",
+   "stories": [
+    {
+     "title_zh": "宣传阐释习近平新时代中国特色社会主义思想| “听！来自长空的故事” 中国航展三十载主题宣讲活动举行",
+     "title_en": "宣传阐释习近平新时代中国特色社会主义思想| “听！来自长空的故事” 中国航展三十载主题宣讲活动举行",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://pub-zhtb.hizh.cn/a/202611/27/AP6b09813be4b065c88cdbc9f9.html",
+       "label_zh": "珠海网",
+       "label_en": "珠海网",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "China stocks surge most in two years as Beijing vows stronger market support",
+     "title_en": "China stocks surge most in two years as Beijing vows stronger market support",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.reuters.com/markets/europe/china-stocks-shoot-up-after-beijing-vows-support-2026-11-27/",
+       "label_zh": "Reuters",
+       "label_en": "Reuters",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "前十月中国南方五省区全社会用电量同比增6.8%",
+     "title_en": "前十月中国南方五省区全社会用电量同比增6.8%",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://finance.sina.cn/2026-11-27/detail-inkaewua5400031.d.html?vt=4",
+       "label_zh": "新浪财经_金融信息服务商",
+       "label_en": "新浪财经_金融信息服务商",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "China’s Cabinet Stresses Market Support in Rare Midday Statement",
+     "title_en": "China’s Cabinet Stresses Market Support in Rare Midday Statement",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.bloomberg.com/news/articles/2026-11-27/china-s-cabinet-stresses-market-support-in-midday-release",
+       "label_zh": "Bloomberg.com",
+       "label_en": "Bloomberg.com",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "以习近平党建思想为根本遵循 持之以恒推进全面从严治党",
+     "title_en": "以习近平党建思想为根本遵循 持之以恒推进全面从严治党",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.cass.cn/yaowen/202611/t20261127_6081518.shtml",
+       "label_zh": "中国社会科学院",
+       "label_en": "中国社会科学院",
+       "side": "cn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "us",
+   "zh": "美国要闻",
+   "en": "United States",
+   "stories": [
+    {
+     "title_zh": "特朗普称尚未发现伊朗镐山有实质性活动",
+     "title_en": "特朗普称尚未发现伊朗镐山有实质性活动",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.news.cn/world/20261127/d1ee161dc2fd4291905ca7a7403aabc0/c.html",
+       "label_zh": "新华网",
+       "label_en": "新华网",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "President Trump Signs Executive Orders, Nov. 26, 2026",
+     "title_en": "President Trump Signs Executive Orders, Nov. 26, 2026",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://www.whitehouse.gov/videos/president-trump-signs-executive-orders-nov-26-2026/",
+       "label_zh": "The White House (.gov)",
+       "label_en": "The White House (.gov)",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "特朗普承认：美国刺探中国情报，多少年了一直都这样",
+     "title_en": "特朗普承认：美国刺探中国情报，多少年了一直都这样",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://news.sina.cn/gn/2026-11-27/detail-inkaewtv0953413.d.html?vt=4&cid=56261&node_id=56261",
+       "label_zh": "新浪新闻",
+       "label_en": "新浪新闻",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "Trump says AI leaders signed a 'constitution' to police themselves",
+     "title_en": "Trump says AI leaders signed a 'constitution' to police themselves",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "https://abcnews.com/Politics/top-ai-leaders-meet-trump-white-house-amid/story?id=136832988",
+       "label_zh": "ABC News - Breaking News, Latest News and Videos",
+       "label_en": "ABC News - Breaking News, Latest News and Videos",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "GDP上修，特朗普“上火”",
+     "title_en": "GDP上修，特朗普“上火”",
+     "summary_zh": "",
+     "summary_en": "",
+     "links": [
+      {
+       "url": "http://news.china.com.cn/2026-11/27/content_118792156.shtml",
+       "label_zh": "中国网新闻中心",
+       "label_en": "中国网新闻中心",
+       "side": "cn"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hot": {
+  "cn": [
+   {
+    "zh": "驻日使馆提醒中国公民防范地震",
+    "en": "驻日使馆提醒中国公民防范地震",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://www.douyin.com/hot/2767310",
+    "platforms_zh": "抖音热榜",
+    "platforms_en": "Douyin"
+   },
+   {
+    "zh": "医保局工作人员直播间辱骂咨询者",
+    "en": "医保局工作人员直播间辱骂咨询者",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://s.weibo.com/weibo?q=%23%E5%8C%BB%E4%BF%9D%E5%B1%80%E5%B7%A5%E4%BD%9C%E4%BA%BA%E5%91%98%E7%9B%B4%E6%92%AD%E9%97%B4%E8%BE%B1%E9%AA%82%E5%92%A8%E8%AF%A2%E8%80%85%23&t=31&band_rank=1&Refer=top",
+    "platforms_zh": "微博热搜",
+    "platforms_en": "Weibo"
+   },
+   {
+    "zh": "A股迎史诗级暴涨，沪深两市成交额重回2万亿，创业板指放量大涨超11%，超400只个股涨停，发生了什么？",
+    "en": "A股迎史诗级暴涨，沪深两市成交额重回2万亿，创业板指放量大涨超11%，超400只个股涨停，发生了什么？",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://www.zhihu.com/question/2109643924381726663",
+    "platforms_zh": "知乎热榜",
+    "platforms_en": "Zhihu"
+   },
+   {
+    "zh": "BLG夺冠背后的心路历程",
+    "en": "BLG夺冠背后的心路历程",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://search.bilibili.com/all?keyword=BLG%E5%A4%BA%E5%86%A0%E8%83%8C%E5%90%8E%E7%9A%84%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B",
+    "platforms_zh": "B站热搜",
+    "platforms_en": "Bilibili"
+   },
+   {
+    "zh": "2026广州车展开幕",
+    "en": "2026广州车展开幕",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://www.douyin.com/hot/2767065",
+    "platforms_zh": "抖音热榜",
+    "platforms_en": "Douyin"
+   }
+  ],
+  "us": [
+   {
+    "zh": "Black Friday",
+    "en": "Black Friday",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://x.com/search?q=Black%20Friday",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   },
+   {
+    "zh": "Good Friday",
+    "en": "Good Friday",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://x.com/search?q=Good%20Friday",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   },
+   {
+    "zh": "Cloud One",
+    "en": "Cloud One",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://x.com/search?q=Cloud%20One",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   },
+   {
+    "zh": "RED Friday",
+    "en": "RED Friday",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://x.com/search?q=RED%20Friday",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   },
+   {
+    "zh": "EvaFarmSight",
+    "en": "EvaFarmSight",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://x.com/search?q=EvaFarmSight",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   }
+  ]
+ },
+ "degraded": true,
+ "error_zh": "DeepSeek key 无效或没有设置，需要换一个新 key",
+ "error_en": "the DeepSeek key is invalid or missing",
+ "github": {
+  "trending": [
+   {
+    "name": "elementalsouls/Claude-BugHunter",
+    "repo": "",
+    "url": "https://github.com/elementalsouls/Claude-BugHunter",
+    "lang": "Python",
+    "desc_zh": "A Claude Code skill bundle for bug hunting and external red-team work - 85 skills, 16 slash commands, 681 disclosed-report patterns curate…",
+    "desc_en": "A Claude Code skill bundle for bug hunting and external red-team work - 85 skills, 16 slash commands, 681 disclosed-report patterns curate…",
+    "metric_zh": "今天 +1,615 星",
+    "metric_en": "+1,615 stars today"
+   },
+   {
+    "name": "obra/superpowers",
+    "repo": "",
+    "url": "https://github.com/obra/superpowers",
+    "lang": "Shell",
+    "desc_zh": "An agentic skills framework & software development methodology that works.",
+    "desc_en": "An agentic skills framework & software development methodology that works.",
+    "metric_zh": "今天 +916 星",
+    "metric_en": "+916 stars today"
+   },
+   {
+    "name": "HKUDS/CLI-Anything",
+    "repo": "",
+    "url": "https://github.com/HKUDS/CLI-Anything",
+    "lang": "Python",
+    "desc_zh": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
+    "desc_en": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
+    "metric_zh": "今天 +668 星",
+    "metric_en": "+668 stars today"
+   },
+   {
+    "name": "jingyaogong/minimind",
+    "repo": "",
+    "url": "https://github.com/jingyaogong/minimind",
+    "lang": "Python",
+    "desc_zh": "🧠 两小时从 0 训出你的 64M 大模型。Train your own 64M LLM from scratch in 2 hours.",
+    "desc_en": "🧠 两小时从 0 训出你的 64M 大模型。Train your own 64M LLM from scratch in 2 hours.",
+    "metric_zh": "今天 +667 星",
+    "metric_en": "+667 stars today"
+   },
+   {
+    "name": "cursor/plugins",
+    "repo": "",
+    "url": "https://github.com/cursor/plugins",
+    "lang": "TypeScript",
+    "desc_zh": "Cursor plugin specification and official plugins",
+    "desc_en": "Cursor plugin specification and official plugins",
+    "metric_zh": "今天 +242 星",
+    "metric_en": "+242 stars today"
+   },
+   {
+    "name": "firecrawl/firecrawl",
+    "repo": "",
+    "url": "https://github.com/firecrawl/firecrawl",
+    "lang": "TypeScript",
+    "desc_zh": "Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API.",
+    "desc_en": "Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API.",
+    "metric_zh": "今天 +833 星",
+    "metric_en": "+833 stars today"
+   },
+   {
+    "name": "nginx/nginx",
+    "repo": "",
+    "url": "https://github.com/nginx/nginx",
+    "lang": "C",
+    "desc_zh": "The official NGINX Open Source repository.",
+    "desc_en": "The official NGINX Open Source repository.",
+    "metric_zh": "今天 +148 星",
+    "metric_en": "+148 stars today"
+   },
+   {
+    "name": "openvinotoolkit/openvino",
+    "repo": "",
+    "url": "https://github.com/openvinotoolkit/openvino",
+    "lang": "C++",
+    "desc_zh": "OpenVINO™ is an open source toolkit for optimizing and deploying AI inference",
+    "desc_en": "OpenVINO™ is an open source toolkit for optimizing and deploying AI inference",
+    "metric_zh": "今天 +152 星",
+    "metric_en": "+152 stars today"
+   }
+  ],
+  "new": [
+   {
+    "name": "Marvisak/VIctory",
+    "repo": "",
+    "url": "https://github.com/Marvisak/VIctory",
+    "lang": "Rust",
+    "desc_zh": "An attempt at running GTA VI on PC",
+    "desc_en": "An attempt at running GTA VI on PC",
+    "metric_zh": "13,644 星",
+    "metric_en": "13,644 stars"
+   },
+   {
+    "name": "4lwayz/portwatch-vi",
+    "repo": "",
+    "url": "https://github.com/4lwayz/portwatch-vi",
+    "lang": "JavaScript",
+    "desc_zh": "Does GTA VI run on PC yet? A live tracker of community recompilation and emulation efforts, updated daily.",
+    "desc_en": "Does GTA VI run on PC yet? A live tracker of community recompilation and emulation efforts, updated daily.",
+    "metric_zh": "6,306 星",
+    "metric_en": "6,306 stars"
+   },
+   {
+    "name": "EL4CTEO/fast-anything",
+    "repo": "",
+    "url": "https://github.com/EL4CTEO/fast-anything",
+    "lang": "Rust",
+    "desc_zh": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, pr…",
+    "desc_en": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, pr…",
+    "metric_zh": "4,396 星",
+    "metric_en": "4,396 stars"
+   },
+   {
+    "name": "Belobug/VIctory-Belobug-AMD",
+    "repo": "",
+    "url": "https://github.com/Belobug/VIctory-Belobug-AMD",
+    "lang": "Rust",
+    "desc_zh": "",
+    "desc_en": "",
+    "metric_zh": "3,966 星",
+    "metric_en": "3,966 stars"
+   },
+   {
+    "name": "fxceless/victory-fork",
+    "repo": "",
+    "url": "https://github.com/fxceless/victory-fork",
+    "lang": "Rust",
+    "desc_zh": "Work-in-progress fork of VIctory: getting an Xbox Series title to render and run on a Windows PC. No game files.",
+    "desc_en": "Work-in-progress fork of VIctory: getting an Xbox Series title to render and run on a Windows PC. No game files.",
+    "metric_zh": "3,327 星",
+    "metric_en": "3,327 stars"
+   }
+  ],
+  "skills": [
+   {
+    "name": "ui-design",
+    "repo": "uxpilot-ai/frontend-design-skill",
+    "url": "https://www.skills.sh/uxpilot-ai/frontend-design-skill/ui-design",
+    "lang": "",
+    "desc_zh": "Design real UI screens before building them, then build them in the user's code. Use when someone asks to design, redesign or improve the…",
+    "desc_en": "Design real UI screens before building them, then build them in the user's code. Use when someone asks to design, redesign or improve the…",
+    "metric_zh": "本周 38,500 次安装",
+    "metric_en": "38,500 installs this week"
+   },
+   {
+    "name": "JuneYaooo/rea-video",
+    "repo": "",
+    "url": "https://github.com/JuneYaooo/rea-video",
+    "lang": "Python",
+    "desc_zh": "Reverse-engineer any video, shot by shot: filmed, AI-generated or coded, and how to remake it. Breakdowns in the open VIDEO.md format. 逆向一…",
+    "desc_en": "Reverse-engineer any video, shot by shot: filmed, AI-generated or coded, and how to remake it. Breakdowns in the open VIDEO.md format. 逆向一…",
+    "metric_zh": "13,869 星",
+    "metric_en": "13,869 stars"
+   },
+   {
+    "name": "caru-ini/stack-diagram",
+    "repo": "",
+    "url": "https://github.com/caru-ini/stack-diagram",
+    "lang": "TypeScript",
+    "desc_zh": "Agent skill: describe your stack in a sentence, get an architecture diagram with official logos",
+    "desc_en": "Agent skill: describe your stack in a sentence, get an architecture diagram with official logos",
+    "metric_zh": "2,970 星",
+    "metric_en": "2,970 stars"
+   },
+   {
+    "name": "ai-video-generation",
+    "repo": "beltsh/superpowers",
+    "url": "https://www.skills.sh/beltsh/superpowers/ai-video-generation",
+    "lang": "",
+    "desc_zh": "Generate AI videos with Google Veo, Seedance 2.5, Kling, HappyHorse, Wan, Grok and 40+ models via inference.sh CLI. Models: Veo 3.1, Seeda…",
+    "desc_en": "Generate AI videos with Google Veo, Seedance 2.5, Kling, HappyHorse, Wan, Grok and 40+ models via inference.sh CLI. Models: Veo 3.1, Seeda…",
+    "metric_zh": "本周 30,200 次安装",
+    "metric_en": "30,200 installs this week"
+   },
+   {
+    "name": "erkamyaman/rust-anything",
+    "repo": "",
+    "url": "https://github.com/erkamyaman/rust-anything",
+    "lang": "Rust",
+    "desc_zh": "Rewrite your app in Rust, piece by piece, checked against the original at every step. Works with TypeScript, JavaScript, Python, Go, Ruby,…",
+    "desc_en": "Rewrite your app in Rust, piece by piece, checked against the original at every step. Works with TypeScript, JavaScript, Python, Go, Ruby,…",
+    "metric_zh": "10,594 星",
+    "metric_en": "10,594 stars"
+   }
+  ]
+ },
+ "stats": {
+  "model": "",
+  "item_count": 294,
+  "sources": {
+   "douyin": 30,
+   "weibo": 30,
+   "zhihu": 20,
+   "bilibili": 20,
+   "x_trends": 30,
+   "youtube": 49,
+   "news:ai_tech:zh": 12,
+   "news:ai_tech:en": 12,
+   "news:finance:zh": 12,
+   "news:finance:en": 12,
+   "news:us_china_world:zh": 12,
+   "news:us_china_world:en": 12,
+   "news:china:zh": 12,
+   "news:china:en": 12,
+   "news:us:zh": 12,
+   "news:us:en": 12,
+   "github:trending": 8,
+   "github:new": 5,
+   "github:skills": 5
+  },
+  "failed_zh": [],
+  "failed_en": []
+ }
+}
