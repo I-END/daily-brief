@@ -1,4 +1,4 @@
-# 信息源。enabled: false 就是关掉；limit 是每个源最多取几条。
+# 信息源的细节：每个源取几条、YouTube 看哪些频道。开关在网站的「设置」页（config/preferences.json），这里的 enabled 不再起作用。
 
 # 中国平台热榜（都不用登录）
 hot_lists:

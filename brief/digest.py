@@ -177,8 +177,10 @@ def validate(raw, by_id, topics, dcfg):
                          "platforms_en": ", ".join(p[1] for p in plats)})
             if len(rows) >= dcfg["hot_top"]:
                 break
-        if not rows:  # model skipped it: fall back to raw ranks
-            for it in [i for i in by_id.values() if i["platform"] in platforms][: dcfg["hot_top"]]:
+        if not rows:  # model skipped it (or no AI today): take #1 of each platform, then #2, ...
+            per = [[i for i in by_id.values() if i["platform"] == p] for p in platforms]
+            ranked = [lst[r] for r in range(max(map(len, per), default=0)) for lst in per if r < len(lst)]
+            for it in ranked[: dcfg["hot_top"]]:
                 lab = PLATFORM_LABEL[it["platform"]]
                 rows.append({"zh": it["title"], "en": it["title"], "note_zh": "", "note_en": "",
                              "url": it["url"], "platforms_zh": lab[0], "platforms_en": lab[1]})
@@ -197,6 +199,88 @@ def make_digest(items, topics, dcfg, llm_cfg):
         raise llm.LLMError("模型没有返回任何有效新闻: " + json.dumps(raw, ensure_ascii=False)[:300])
     resolve_links(result)
     return result
+
+
+def explain_error(e):
+    """LLM error -> short (zh, en) reason for the page and the Feishu card."""
+    s = str(e)
+    if "401" in s or "没有设置" in s:
+        return "DeepSeek key 无效或没有设置，需要换一个新 key", "the DeepSeek key is invalid or missing"
+    if "402" in s:
+        return "DeepSeek 账户余额不足", "the DeepSeek account is out of balance"
+    if "429" in s:
+        return "DeepSeek 请求太频繁，被限流了", "DeepSeek rate-limited the request"
+    return "AI 接口出错：" + s[:80], "the AI service returned an error: " + s[:80]
+
+
+def fallback(items, topics, dcfg, error):
+    """The no-AI edition: news headlines per topic (original language), raw hot-list ranks."""
+    by_id = number_items(items)
+    result = validate({}, by_id, topics, dcfg)
+    for t in result["topics"]:
+        news = [i for i in items if i["platform"] == "news" and i.get("topic") == t["id"]]
+        cn, us = [i for i in news if i["side"] == "cn"], [i for i in news if i["side"] == "us"]
+        mixed = [lst[r] for r in range(max(len(cn), len(us))) for lst in (cn, us) if r < len(lst)]
+        t["stories"] = [{"title_zh": it["title"], "title_en": it["title"], "summary_zh": "", "summary_en": "",
+                         "links": [link_of(it)]}  # news links are labelled with the outlet name
+                        for it in mixed[: dcfg["per_topic"]]]
+    resolve_links(result)
+    zh, en = explain_error(error)
+    result.update(degraded=True, error_zh=zh, error_en=en)
+    return result
+
+
+GH_SYSTEM = """You write one-line descriptions of GitHub projects and AI agent skills for a bilingual daily brief.
+For each numbered entry say, in plain words, what it is or what it does, using only the name and description given.
+zh: Simplified Chinese, at most 30 characters. en: at most 15 words. No hype, no star counts, no "this project".
+If the description is empty or too vague to tell, return empty strings for that id.
+JSON only: {"g1": {"zh": "", "en": ""}, "g2": {"zh": "", "en": ""}}"""
+
+
+def describe_github(sections, llm_cfg):
+    """Add desc_zh / desc_en to every GitHub entry: AI one-liners, falling back to the repo's own text."""
+    entries = [e for k in ("trending", "new", "skills") for e in sections.get(k, [])]
+    for e in entries:  # fallback: the repo's own text, cut short
+        e["desc_zh"] = e["desc_en"] = e["desc"] if len(e["desc"]) <= 140 else e["desc"][:138].rstrip() + "…"
+    if not entries or llm_cfg is None:
+        return sections
+    lines = [f"g{n} {e['name']}" + (f" ({e['repo']})" if e["repo"] != e["name"].lower() else "")
+             + (f" [{e['lang']}]" if e["lang"] else "") + (f" — {e['desc'][:200]}" if e["desc"] else "")
+             for n, e in enumerate(entries, 1)]
+    try:
+        raw = llm.chat_json(llm_cfg, GH_SYSTEM, "\n".join(lines) + "\n\nReturn the JSON now.", name="github")
+    except llm.LLMError as err:
+        print(f"⚠ GitHub 简介没写成，用项目自己的介绍：{err}")
+        return sections
+    for n, e in enumerate(entries, 1):
+        d = raw.get(f"g{n}") if isinstance(raw, dict) else None
+        if isinstance(d, dict):
+            e["desc_zh"] = _s(d.get("zh")) or e["desc"]
+            e["desc_en"] = _s(d.get("en")) or e["desc"]
+    return sections
+
+
+def github_view(sections):
+    """Entries -> what the page and card show (metric text per section)."""
+    def metric(kind, e):
+        if kind == "trending" and e["gain"]:
+            return f"今天 +{e['gain']:,} 星", f"+{e['gain']:,} stars today"
+        if e["source"] == "skills.sh" and e["gain"]:
+            return f"本周 {e['gain']:,} 次安装", f"{e['gain']:,} installs this week"
+        if e["stars"]:
+            return f"{e['stars']:,} 星", f"{e['stars']:,} stars"
+        return "", ""
+
+    out = {}
+    for kind in ("trending", "new", "skills"):
+        rows = []
+        for e in sections.get(kind, []):
+            mz, me = metric(kind, e)
+            rows.append({"name": e["name"], "repo": e["repo"] if e["repo"] != e["name"].lower() else "",
+                         "url": e["url"], "lang": e["lang"], "desc_zh": e.get("desc_zh", e["desc"]),
+                         "desc_en": e.get("desc_en", e["desc"]), "metric_zh": mz, "metric_en": me})
+        out[kind] = rows
+    return out
 
 
 def resolve_links(result):

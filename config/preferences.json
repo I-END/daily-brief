@@ -1,0 +1,33 @@
+{
+  "push_hour": 7,
+  "feishu": true,
+  "default_lang": "zh",
+  "topics": {
+    "ai_tech": true,
+    "finance": true,
+    "us_china_world": true,
+    "china": true,
+    "us": true
+  },
+  "custom_topics": [],
+  "sources": {
+    "douyin": true,
+    "weibo": true,
+    "zhihu": true,
+    "bilibili": true,
+    "x_trends": true,
+    "youtube": true,
+    "google_news": true,
+    "github": true
+  },
+  "digest": {
+    "per_topic": 5,
+    "must_know": 3,
+    "card_per_topic": 3
+  },
+  "github": {
+    "trending": 8,
+    "new": 5,
+    "skills": 5
+  }
+}

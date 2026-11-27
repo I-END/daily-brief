@@ -1,0 +1,481 @@
+{%- macro bi(zh, en) -%}<span class="zh" lang="zh-CN">{{ zh }}</span><span class="en" lang="en">{{ en }}</span>{%- endmacro -%}
+<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- This page holds a GitHub token in the browser, so it may only talk to api.github.com. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src https://api.github.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>{{ site.title_zh }} 设置</title>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search).get("lang"), saved = null;
+    try { saved = localStorage.getItem("brief-lang"); } catch (e) {}
+    var lang = (q === "en" || q === "zh") ? q : (saved || {{ (site.default_lang or "zh")|tojson }});
+    document.documentElement.setAttribute("data-lang", lang);
+    document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f3f5f7; --ink: #1a1f29; --muted: #5b6573; --rule: #d5dae1;
+    --cn: #b8321f; --us: #2b4c9b; --wash: #e8ecf1; --ok: #2f7a4b;
+    --serif: "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+    --sans: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12161d; --ink: #e7eaef; --muted: #98a2b0; --rule: #2a313c;
+      --cn: #f07258; --us: #8fa8f0; --wash: #1b212b; --ok: #6cc48f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #12161d; --ink: #e7eaef; --muted: #98a2b0; --rule: #2a313c;
+    --cn: #f07258; --us: #8fa8f0; --wash: #1b212b; --ok: #6cc48f;
+  }
+  html[data-lang="en"] { --serif: Georgia, "Times New Roman", "Noto Serif SC", serif; }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 var(--sans); }
+  html[data-lang="en"] .zh, html:not([data-lang="en"]) .en { display: none; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--us); outline-offset: 2px; border-radius: 3px; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 20px 16px 120px; }
+
+  header { display: flex; align-items: center; gap: 12px; }
+  header .grow { flex: 1; min-width: 0; }
+  h1 { margin: 0; font: 800 26px/1.2 var(--serif); }
+  .back { color: var(--muted); font-size: 14px; }
+  .lang { flex: none; display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 2px; }
+  .lang button { border: 0; background: none; color: var(--muted); font: 600 14px var(--sans); padding: 6px 12px; border-radius: 999px; cursor: pointer; }
+  html:not([data-lang="en"]) .lang [data-set="zh"], html[data-lang="en"] .lang [data-set="en"] { background: var(--ink); color: var(--paper); }
+
+  section { margin-top: 30px; }
+  section > h2 { margin: 0 0 2px; font: 800 20px/1.3 var(--serif); padding-bottom: 8px; border-bottom: 2px solid var(--ink); }
+  .hint { color: var(--muted); font-size: 14px; margin: 8px 0 0; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px;
+         padding: 8px 0; border-bottom: 1px solid var(--rule); }
+  .row > span:first-child { min-width: 0; }
+  .row small { display: block; color: var(--muted); font-size: 13px; line-height: 1.4; }
+
+  /* switch */
+  .switch { appearance: none; -webkit-appearance: none; flex: none; width: 46px; height: 28px; margin: 0; border-radius: 999px;
+            background: var(--rule); position: relative; cursor: pointer; transition: background .15s; }
+  .switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%;
+                   background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.25); transition: transform .15s; }
+  .switch:checked { background: var(--cn); }
+  .switch:checked::after { transform: translateX(18px); }
+
+  /* number stepper */
+  .stepper { flex: none; display: inline-flex; align-items: center; border: 1px solid var(--rule); border-radius: 999px; }
+  .stepper button { border: 0; background: none; color: var(--ink); width: 36px; height: 34px; font: 600 18px var(--sans); cursor: pointer; }
+  .stepper input { width: 2.6em; border: 0; background: none; color: var(--ink); text-align: center; font: 600 16px var(--sans);
+                   -moz-appearance: textfield; }
+  .stepper input::-webkit-inner-spin-button, .stepper input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  select, input[type="text"], input[type="password"] { font: 16px var(--sans); color: var(--ink); background: var(--paper);
+            border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; }
+  .seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 2px; }
+  .seg label { cursor: pointer; }
+  .seg input { position: absolute; opacity: 0; pointer-events: none; }
+  .seg span { display: block; padding: 5px 12px; border-radius: 999px; color: var(--muted); font-weight: 600; font-size: 14px; }
+  .seg input:checked + span { background: var(--ink); color: var(--paper); }
+  .seg input:focus-visible + span { outline: 2px solid var(--us); }
+
+  .btn { border: 1px solid var(--ink); background: var(--ink); color: var(--paper); border-radius: 999px; padding: 9px 18px;
+         font: 600 15px var(--sans); cursor: pointer; }
+  .btn.quiet { background: none; color: var(--ink); border-color: var(--rule); }
+  .btn:disabled { opacity: .45; cursor: default; }
+  .link { border: 0; background: none; padding: 0; color: var(--cn); font: inherit; cursor: pointer; text-decoration: underline; }
+
+  .connect { margin-top: 18px; padding: 16px 18px; background: var(--wash); border-radius: 10px; }
+  .connect h2 { margin: 0 0 6px; font: 800 17px/1.3 var(--serif); border: 0; padding: 0; }
+  .connect ol { margin: 8px 0 12px; padding-left: 1.3em; font-size: 15px; }
+  .connect li { margin: 4px 0; }
+  .connect code { font-size: 14px; background: var(--paper); padding: 1px 5px; border-radius: 4px; }
+  .connect .field { display: flex; gap: 8px; flex-wrap: wrap; }
+  .connect .field input { flex: 1; min-width: 0; }
+  .connected { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 16px; font-size: 14px; color: var(--muted); }
+  .connected b { color: var(--ok); }
+
+  .add { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+  .add input { min-width: 0; width: 100%; }
+  .add .wide { grid-column: 1 / -1; }
+  @media (max-width: 480px) { .add { grid-template-columns: 1fr; } }
+  .del { flex: none; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--paper); border-top: 1px solid var(--rule); }
+  .bar .in { max-width: 640px; margin: 0 auto; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 12px; }
+  .status { flex: 1; min-width: 0; font-size: 14px; color: var(--muted); }
+  .status.bad { color: var(--cn); } .status.good { color: var(--ok); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="grow">
+      <a class="back" href="./">{{ bi("返回日报", "Back to the brief") }}</a>
+      <h1>{{ bi("设置", "Settings") }}</h1>
+    </div>
+    <div class="lang" role="group" aria-label="语言 / Language">
+      <button type="button" data-set="zh">中</button><button type="button" data-set="en">EN</button>
+    </div>
+  </header>
+
+  <div class="connect" id="connect" hidden>
+    <h2>{{ bi("先连接你的 GitHub（只需一次）", "Connect your GitHub (once)") }}</h2>
+    <p class="hint" style="margin-top:0">{{ bi("保存设置要往你的仓库里写文件，所以需要一个只管这个仓库的 token。它只存在这台设备的浏览器里，只发给 GitHub。", "Saving writes a file to your repository, so this page needs a token limited to this one repository. It stays in this browser and is only sent to GitHub.") }}</p>
+    <ol>
+      <li>{{ bi("打开", "Open") }} <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">{{ bi("GitHub 新建 token 页面", "GitHub's new-token page") }}</a></li>
+      <li>{{ bi("Token name 随便填；Expiration 选最长", "Any token name; pick the longest expiration") }}</li>
+      <li>{{ bi("Repository access 选 ", "Repository access: ") }}<code>Only select repositories</code>{{ bi("，再选 ", ", then pick ") }}<code class="repo-name"></code></li>
+      <li>{{ bi("Permissions 里把 ", "Under Permissions set ") }}<code>Contents</code>{{ bi(" 和 ", " and ") }}<code>Actions</code>{{ bi(" 都设成 ", " to ") }}<code>Read and write</code></li>
+      <li>{{ bi("点 Generate token，复制，粘到下面", "Click Generate token, copy it and paste it below") }}</li>
+    </ol>
+    <div class="field">
+      <input type="password" id="token" autocomplete="off" spellcheck="false" placeholder="github_pat_…" aria-label="GitHub token">
+      <button type="button" class="btn" id="token-save">{{ bi("连接", "Connect") }}</button>
+    </div>
+  </div>
+  <div class="connected" id="connected" hidden>
+    <span><b>●</b> {{ bi("已连接 GitHub", "Connected to GitHub") }} <span class="repo-name"></span></span>
+    <button type="button" class="link" id="token-forget">{{ bi("在这台设备上断开", "Disconnect on this device") }}</button>
+  </div>
+
+  <section>
+    <h2>{{ bi("话题", "Topics") }}</h2>
+    <p class="hint">{{ bi("关掉的话题不再生成。下一次生成时生效。", "Topics switched off are left out from the next issue on.") }}</p>
+    <div id="topics"></div>
+    <details id="add-topic">
+      <summary class="hint" style="cursor:pointer">{{ bi("添加一个话题", "Add a topic") }}</summary>
+      <div class="add">
+        <input type="text" id="t-zh" placeholder="中文名，例如 体育" aria-label="中文名">
+        <input type="text" id="t-en" placeholder="English name, e.g. Sports" aria-label="English name">
+        <input type="text" class="wide" id="t-kzh" placeholder="中文关键词，用逗号分开：NBA，中超，奥运" aria-label="中文关键词">
+        <input type="text" class="wide" id="t-ken" placeholder="English keywords, comma-separated: NBA, Premier League" aria-label="English keywords">
+        <div class="wide"><button type="button" class="btn quiet" id="t-add">{{ bi("添加话题", "Add topic") }}</button></div>
+      </div>
+    </details>
+  </section>
+
+  <section>
+    <h2>{{ bi("信息来源", "Sources") }}</h2>
+    <div id="sources"></div>
+  </section>
+
+  <section>
+    <h2>{{ bi("篇幅", "Length") }}</h2>
+    <div id="numbers"></div>
+  </section>
+
+  <section>
+    <h2>{{ bi("推送", "Delivery") }}</h2>
+    <label class="row"><span>{{ bi("每天几点后推送", "Deliver after") }}<small>{{ bi("美东时间。云端每小时检查一次，一般在这个时间后 1 小时内送到。", "US Eastern. The cloud checks hourly, so it usually arrives within the hour.") }}</small></span>
+      <select id="push_hour" aria-label="推送时间"></select></label>
+    <label class="row"><span>{{ bi("推送到飞书", "Send to Feishu") }}</span><input type="checkbox" class="switch" id="feishu"></label>
+    <div class="row"><span>{{ bi("网页默认语言", "Default page language") }}</span>
+      <span class="seg" role="radiogroup" aria-label="默认语言">
+        <label><input type="radio" name="default_lang" value="zh"><span>中文</span></label>
+        <label><input type="radio" name="default_lang" value="en"><span>English</span></label>
+      </span></div>
+  </section>
+
+  <section>
+    <h2>{{ bi("马上执行", "Run now") }}</h2>
+    <p class="hint">{{ bi("会先保存还没保存的改动。生成大约要 3–5 分钟，之后刷新日报页面。", "Unsaved changes are saved first. A new issue takes 3–5 minutes; then reload the brief.") }}</p>
+    <div class="actions">
+      <button type="button" class="btn quiet" id="run-now">{{ bi("现在重新生成今天的日报", "Regenerate today's issue") }}</button>
+      <button type="button" class="btn quiet" id="run-push">{{ bi("测试飞书推送", "Send a test to Feishu") }}</button>
+    </div>
+    <p class="hint"><a id="runs-link" target="_blank" rel="noopener">{{ bi("在 GitHub 上看运行记录", "See runs on GitHub") }}</a></p>
+  </section>
+</div>
+
+<div class="bar"><div class="in">
+  <span class="status" id="status" role="status" aria-live="polite"></span>
+  <button type="button" class="btn" id="save" disabled>{{ bi("保存设置", "Save settings") }}</button>
+</div></div>
+
+<script>
+(function () {
+  var CFG = {{ cfg|tojson }};
+  var API = "https://api.github.com";
+  var FILE = "config/preferences.json";
+  var repo = CFG.repo || (function () {
+    var owner = location.hostname.split(".")[0], name = location.pathname.split("/").filter(Boolean)[0];
+    return owner && name ? owner + "/" + name : "";
+  })();
+  var root = document.documentElement;
+  var prefs = JSON.parse(JSON.stringify(CFG.prefs)), sha = null, dirty = false, busy = false;
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]; }); }
+  function bi(zh, en) { return '<span class="zh" lang="zh-CN">' + esc(zh) + '</span><span class="en" lang="en">' + esc(en) + "</span>"; }
+  function store(k, v) { try { if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {} }
+  function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  var token = read("brief-gh-token");
+
+  function say(zh, en, kind) {
+    var s = $("status");
+    s.className = "status" + (kind ? " " + kind : "");
+    s.innerHTML = bi(zh, en);
+  }
+  function markDirty() { dirty = true; refreshButtons(); say("有改动还没保存", "Unsaved changes"); }
+  function refreshButtons() {
+    $("save").disabled = busy || !token || !dirty;
+    $("run-now").disabled = $("run-push").disabled = busy || !token;
+  }
+
+  // ---------- GitHub API ----------
+  function gh(method, path, body) {
+    var h = {"Accept": "application/vnd.github+json"};
+    if (token) h.Authorization = "Bearer " + token;
+    if (body) h["Content-Type"] = "application/json";
+    return fetch(API + path, {method: method, headers: h, body: body ? JSON.stringify(body) : undefined, cache: "no-store"});
+  }
+  function b64decode(s) { var bin = atob(s.replace(/\s/g, "")), bytes = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i); return new TextDecoder().decode(bytes); }
+  function b64encode(s) { var bytes = new TextEncoder().encode(s), bin = ""; for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]); return btoa(bin); }
+  function why(r) {
+    if (r.status === 401) return ["token 无效或已过期，请重新连接", "the token is invalid or expired; connect again"];
+    if (r.status === 403 || r.status === 404) return ["token 没有这个仓库的权限（要 Contents 和 Actions 都是 Read and write）", "the token lacks access to this repository (needs Contents and Actions: Read and write)"];
+    if (r.status === 409) return ["文件刚被改过，已重新读取，请再点一次保存", "the file changed meanwhile; reloaded, please save again"];
+    return ["GitHub 返回 " + r.status, "GitHub returned " + r.status];
+  }
+
+  function load() {
+    return gh("GET", "/repos/" + repo + "/contents/" + FILE + "?ref=main").then(function (r) {
+      if (!r.ok) throw r;
+      return r.json();
+    }).then(function (j) {
+      sha = j.sha;
+      prefs = merge(CFG.defaults, JSON.parse(b64decode(j.content)));
+      render();
+      dirty = false; refreshButtons();
+    }).catch(function () {
+      render();
+      say("没读到最新设置，下面显示的是上次生成网页时的设置", "Couldn't load the latest settings; showing the ones from the last build", "bad");
+    });
+  }
+  function merge(def, got) {
+    var out = JSON.parse(JSON.stringify(def));
+    Object.keys(got || {}).forEach(function (k) {
+      if (out[k] && typeof out[k] === "object" && !Array.isArray(out[k]) && got[k] && typeof got[k] === "object") Object.assign(out[k], got[k]);
+      else out[k] = got[k];
+    });
+    return out;
+  }
+
+  function save() {
+    collect();
+    var text = JSON.stringify(prefs, null, 2) + "\n";
+    var body = {message: "settings: update from the settings page", content: b64encode(text), branch: "main"};
+    if (sha) body.sha = sha;
+    busy = true; refreshButtons(); say("保存中…", "Saving…");
+    return gh("PUT", "/repos/" + repo + "/contents/" + FILE, body).then(function (r) {
+      busy = false;
+      if (!r.ok) {
+        var w = why(r); say("没保存：" + w[0], "Not saved: " + w[1], "bad"); refreshButtons();
+        if (r.status === 409) load();
+        return false;
+      }
+      return r.json().then(function (j) {
+        sha = j.content.sha; dirty = false; refreshButtons();
+        say("已保存，下一次生成时生效", "Saved; takes effect from the next issue", "good");
+        return true;
+      });
+    }).catch(function () { busy = false; refreshButtons(); say("没保存：连不上 GitHub", "Not saved: couldn't reach GitHub", "bad"); return false; });
+  }
+
+  function dispatch(inputs, doneZh, doneEn) {
+    (dirty ? save() : Promise.resolve(true)).then(function (ok) {
+      if (!ok) return;
+      busy = true; refreshButtons(); say("正在叫 GitHub 开始…", "Asking GitHub to start…");
+      gh("POST", "/repos/" + repo + "/actions/workflows/daily.yml/dispatches", {ref: "main", inputs: inputs}).then(function (r) {
+        busy = false; refreshButtons();
+        if (r.status === 204) say(doneZh, doneEn, "good");
+        else { var w = why(r); say("没开始：" + w[0], "Didn't start: " + w[1], "bad"); }
+      }).catch(function () { busy = false; refreshButtons(); say("没开始：连不上 GitHub", "Didn't start: couldn't reach GitHub", "bad"); });
+    });
+  }
+
+  // ---------- form ----------
+  function switchRow(label, sub, checked, onChange, extra) {
+    var row = document.createElement("label");
+    row.className = "row";
+    row.innerHTML = "<span>" + label + (sub ? "<small>" + sub + "</small>" : "") + "</span>";
+    var box = document.createElement("input");
+    box.type = "checkbox"; box.className = "switch"; box.checked = checked;
+    box.addEventListener("change", function () { onChange(box.checked); markDirty(); });
+    if (extra) row.appendChild(extra);
+    row.appendChild(box);
+    return row;
+  }
+
+  var NUMBERS = [
+    ["digest", "per_topic", "每个话题几条新闻", "Stories per topic", "per_topic"],
+    ["digest", "must_know", "「今日必知」几条", "Must-knows", "must_know"],
+    ["digest", "card_per_topic", "飞书卡片每个话题几条", "Stories per topic on the Feishu card", "card_per_topic"],
+    ["github", "trending", "GitHub 今日热门项目几个", "GitHub trending repos", "trending"],
+    ["github", "new", "GitHub 本周新项目几个", "New GitHub repos this week", "new"],
+    ["github", "skills", "热门 skill 几个", "Trending skills", "skills"]
+  ];
+
+  function render() {
+    var box = $("topics");
+    box.innerHTML = "";
+    CFG.topics.forEach(function (t) {
+      box.appendChild(switchRow(bi(t.zh, t.en), "", prefs.topics[t.id] !== false, function (v) { prefs.topics[t.id] = v; }));
+    });
+    (prefs.custom_topics || []).forEach(function (t, i) {
+      var del = document.createElement("button");
+      del.type = "button"; del.className = "link del"; del.innerHTML = bi("删除", "Delete");
+      del.addEventListener("click", function (e) {
+        e.preventDefault();
+        prefs.custom_topics.splice(i, 1); delete prefs.topics[t.id];
+        render(); markDirty();
+      });
+      var kw = [t.keywords_zh, t.keywords_en].filter(Boolean).join(" / ");
+      box.appendChild(switchRow(bi(t.zh, t.en), esc(kw), prefs.topics[t.id] !== false, function (v) { prefs.topics[t.id] = v; }, del));
+    });
+
+    var src = $("sources");
+    src.innerHTML = "";
+    CFG.sources.forEach(function (s) {
+      src.appendChild(switchRow(bi(s.zh, s.en), "", prefs.sources[s.id] !== false, function (v) { prefs.sources[s.id] = v; }));
+    });
+
+    var nums = $("numbers");
+    nums.innerHTML = "";
+    NUMBERS.forEach(function (n) {
+      var lim = CFG.limits[n[4]], row = document.createElement("div");
+      row.className = "row";
+      row.innerHTML = "<span>" + bi(n[2], n[3]) + "</span>";
+      var st = document.createElement("span"); st.className = "stepper";
+      var minus = document.createElement("button"), plus = document.createElement("button"), inp = document.createElement("input");
+      minus.type = plus.type = "button"; minus.textContent = "−"; plus.textContent = "+";
+      minus.setAttribute("aria-label", "减少 / less"); plus.setAttribute("aria-label", "增加 / more");
+      inp.type = "number"; inp.min = lim[0]; inp.max = lim[1]; inp.inputMode = "numeric";
+      inp.setAttribute("aria-label", n[2] + " / " + n[3]);
+      inp.value = prefs[n[0]][n[1]];
+      function set(v) {
+        v = Math.max(lim[0], Math.min(lim[1], parseInt(v, 10) || 0));
+        inp.value = v;
+        if (prefs[n[0]][n[1]] !== v) { prefs[n[0]][n[1]] = v; markDirty(); }
+      }
+      minus.addEventListener("click", function () { set(+inp.value - 1); });
+      plus.addEventListener("click", function () { set(+inp.value + 1); });
+      inp.addEventListener("change", function () { set(inp.value); });
+      st.appendChild(minus); st.appendChild(inp); st.appendChild(plus);
+      row.appendChild(st);
+      nums.appendChild(row);
+    });
+
+    var sel = $("push_hour");
+    sel.innerHTML = "";
+    for (var h = 0; h < 24; h++) {
+      var o = document.createElement("option");
+      o.value = h; o.textContent = hourLabel(h);
+      sel.appendChild(o);
+    }
+    sel.value = prefs.push_hour;
+    $("feishu").checked = prefs.feishu !== false;
+    document.querySelectorAll('input[name="default_lang"]').forEach(function (r) { r.checked = r.value === (prefs.default_lang || "zh"); });
+  }
+  function hourLabel(h) {
+    var en = root.getAttribute("data-lang") === "en";
+    if (en) return (h % 12 || 12) + (h < 12 ? " am" : " pm");
+    if (h < 6) return "凌晨 " + h + " 点";
+    if (h < 12) return "早上 " + h + " 点";
+    if (h === 12) return "中午 12 点";
+    if (h < 18) return "下午 " + (h - 12) + " 点";
+    return "晚上 " + (h - 12) + " 点";
+  }
+  function collect() {
+    prefs.push_hour = parseInt($("push_hour").value, 10);
+    prefs.feishu = $("feishu").checked;
+    var l = document.querySelector('input[name="default_lang"]:checked');
+    prefs.default_lang = l ? l.value : "zh";
+    prefs.custom_topics = (prefs.custom_topics || []).map(function (t) {
+      return {id: t.id, zh: t.zh, en: t.en, keywords_zh: t.keywords_zh || "", keywords_en: t.keywords_en || ""};
+    });
+  }
+
+  $("push_hour").addEventListener("change", markDirty);
+  $("feishu").addEventListener("change", markDirty);
+  document.querySelectorAll('input[name="default_lang"]').forEach(function (r) { r.addEventListener("change", markDirty); });
+
+  $("t-add").addEventListener("click", function () {
+    var t = {id: "c" + Date.now().toString(36), zh: $("t-zh").value.trim(), en: $("t-en").value.trim(),
+             keywords_zh: $("t-kzh").value.trim(), keywords_en: $("t-ken").value.trim()};
+    if (!(t.zh || t.en) || !(t.keywords_zh || t.keywords_en)) {
+      say("新话题要有名字和至少一个关键词", "A new topic needs a name and at least one keyword", "bad");
+      return;
+    }
+    t.zh = t.zh || t.en; t.en = t.en || t.zh;
+    prefs.custom_topics = (prefs.custom_topics || []).concat([t]);
+    prefs.topics[t.id] = true;
+    ["t-zh", "t-en", "t-kzh", "t-ken"].forEach(function (id) { $(id).value = ""; });
+    render(); markDirty();
+  });
+
+  // ---------- connection ----------
+  function showConnection() {
+    $("connect").hidden = !!token;
+    $("connected").hidden = !token;
+    refreshButtons();
+  }
+  $("token-save").addEventListener("click", function () {
+    var v = $("token").value.trim();
+    if (!v) return;
+    token = v;
+    say("检查 token…", "Checking the token…");
+    gh("GET", "/repos/" + repo).then(function (r) {
+      if (!r.ok) { var w = why(r); token = null; say("连接失败：" + w[0], "Couldn't connect: " + w[1], "bad"); showConnection(); return; }
+      store("brief-gh-token", v);
+      $("token").value = "";
+      showConnection();
+      say("已连接", "Connected", "good");
+      load();
+    }).catch(function () { token = null; say("连接失败：连不上 GitHub", "Couldn't connect: couldn't reach GitHub", "bad"); showConnection(); });
+  });
+  $("token-forget").addEventListener("click", function () {
+    token = null; store("brief-gh-token", null); showConnection();
+    say("已在这台设备上断开", "Disconnected on this device");
+  });
+
+  $("save").addEventListener("click", save);
+  $("run-now").addEventListener("click", function () {
+    dispatch({force: "true"}, "已开始重新生成，3–5 分钟后刷新日报页面", "Started; reload the brief in 3–5 minutes");
+  });
+  $("run-push").addEventListener("click", function () {
+    dispatch({push_only: "true"}, "已开始，1–2 分钟内飞书会收到最新一期", "Started; Feishu gets the latest issue within 1–2 minutes");
+  });
+
+  document.querySelectorAll(".lang button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var lang = b.getAttribute("data-set");
+      root.setAttribute("data-lang", lang);
+      root.lang = lang === "en" ? "en" : "zh-CN";
+      store("brief-lang", lang);
+      var keep = $("push_hour").value;
+      collect(); render(); $("push_hour").value = keep;
+    });
+  });
+
+  window.addEventListener("beforeunload", function (e) { if (dirty) { e.preventDefault(); e.returnValue = ""; } });
+
+  document.querySelectorAll(".repo-name").forEach(function (el) { el.textContent = repo.split("/")[1] || repo; });
+  $("runs-link").href = "https://github.com/" + repo + "/actions";
+  showConnection();
+  render();
+  load();
+})();
+</script>
+</body>
+</html>

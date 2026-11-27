@@ -176,7 +176,7 @@ def google_news(query, lang, per_query=12):
 
 def fetch_all(sources_cfg, topics):
     """Returns (items, stats). stats maps source name -> count or error string."""
-    jobs = {}
+    jobs, topic_of = {}, {}  # topic_of: which topic a news search belongs to (used when AI is down)
     hl = sources_cfg.get("hot_lists", {})
     for name, fn in (("douyin", douyin), ("weibo", weibo), ("zhihu", zhihu), ("bilibili", bilibili)):
         c = hl.get(name, {})
@@ -195,6 +195,7 @@ def fetch_all(sources_cfg, topics):
                 q = t.get(f"news_{lang}")
                 if q:
                     jobs[f"news:{t['id']}:{lang}"] = (google_news, (q, lang, gc.get("per_query", 12)))
+                    topic_of[f"news:{t['id']}:{lang}"] = t["id"]
 
     items, stats = [], {}
     with ThreadPoolExecutor(10) as ex:
@@ -202,6 +203,9 @@ def fetch_all(sources_cfg, topics):
         for name, fut in futures.items():
             try:
                 got = fut.result()
+                for it in got:
+                    if name in topic_of:
+                        it["topic"] = topic_of[name]
                 items.extend(got)
                 stats[name] = len(got)
             except Exception as e:  # noqa: BLE001

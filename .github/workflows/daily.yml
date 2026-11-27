@@ -2,12 +2,9 @@ name: daily-brief
 
 on:
   schedule:
-    # GitHub 的定时用 UTC，而且常晚 10-30 分钟。两个时间点保证美东早上 6 点多都能触发
-    # （夏令时 10:17 UTC，冬令时 11:17 UTC）；run.py 会跳过早于 6 点或已生成的那次。
-    - cron: "17 10 * * *"
-    - cron: "17 11 * * *"
-    # 补跑：前两次都被 GitHub 丢掉时
-    - cron: "41 13 * * *"
+    # GitHub 的定时常常晚好几个小时（2026 年 11 月实测晚约 9 小时），所以每小时叫一次。
+    # run.py 自己判断：没到设置里的推送时间、或今天已经做好了，就几秒钟结束。
+    - cron: "23 * * * *"
   workflow_dispatch:
     inputs:
       force:
@@ -49,6 +46,7 @@ jobs:
         name: Fetch, summarize, render
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}   # GitHub 搜索接口（本周新项目、skill）用，免费
           SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
         run: |
           if [ "${{ inputs.fetch_only }}" = "true" ]; then
@@ -106,4 +104,4 @@ jobs:
           SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
         run: |
           sleep 60   # GitHub Pages caches for a few minutes; give the new page a head start
-          python run.py --push-latest
+          python run.py --push-latest ${{ inputs.push_only && '--force' || '' }}

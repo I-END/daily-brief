@@ -26,6 +26,10 @@ def build_card(d, site, site_url, lang="zh", per_topic=3):
     zh = lang == "zh"
     title = f"{site['title_zh'] if zh else site['title_en']} · {d['date']}"
     parts = []
+    if d.get("degraded"):
+        parts.append(f"⚠️ **AI 整理失败：{d['error_zh']}。**下面是没整理过的原始标题，修好后下一次运行会自动换成正常版。"
+                     if zh else f"⚠️ **AI summary failed: {d['error_en']}.** Below are raw headlines; "
+                                "the next run replaces them once it's fixed.")
     if d["must_know"]:
         lines = [f"**{'📌 今日必知' if zh else '📌 Must-knows'}**"]
         for i, m in enumerate(d["must_know"], 1):
@@ -47,6 +51,13 @@ def build_card(d, site, site_url, lang="zh", per_topic=3):
         head = "**🔥 热搜**" if zh else "**🔥 Trending**"
         parts.append("\n".join([head] + ([f"中国：{hot_cn}" if zh else f"China: {hot_cn}"] if hot_cn else [])
                                + ([f"美国 X：{hot_us}" if zh else f"US on X: {hot_us}"] if hot_us else [])))
+    trending = (d.get("github") or {}).get("trending", [])[:3]
+    if trending:
+        lines = ["**⭐ GitHub 今日热门**" if zh else "**⭐ Trending on GitHub**"]
+        for g in trending:
+            desc = g["desc_zh"] if zh else g["desc_en"]
+            lines.append(f"• [{_md_text(g['name'])}]({g['url']})" + (("：" if zh else ": ") + _md_text(desc) if desc else ""))
+        parts.append("\n".join(lines))
 
     elements = [{"tag": "markdown", "content": "\n\n".join(parts)}]
     if site_url:
@@ -58,7 +69,8 @@ def build_card(d, site, site_url, lang="zh", per_topic=3):
                                                                     base + ("?lang=en" if zh else "?lang=zh"), "default")]},
         ]})
     card = {"schema": "2.0",
-            "header": {"title": {"tag": "plain_text", "content": title}, "template": "red"},
+            "header": {"title": {"tag": "plain_text", "content": title},
+                       "template": "orange" if d.get("degraded") else "red"},
             "body": {"elements": elements}}
     return {"msg_type": "interactive", "card": card}
 

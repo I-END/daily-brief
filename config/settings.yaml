@@ -8,12 +8,12 @@ site:
   url: ""
   archive_days: 30          # 页面底部显示最近多少天的往期
 
-# 按这个时区算"今天"和"几点"
+# 按这个时区算"今天"和"几点"。推送时间、话题开关、条数等在网站的「设置」页改
+# （存在 config/preferences.json）。
 timezone: America/New_York
-# 定时任务会在当地 6 点多触发；早于这个钟点的触发会被跳过（用来对付夏令时）
-run_after_hour: 6
 
 digest:
+  # per_topic / must_know / card_per_topic 以设置页为准，这里只是默认值
   per_topic: 5              # 每个话题最多几条
   must_know: 3              # 顶部"今日必知"几条
   hot_top: 5                # 中美热搜各显示几条

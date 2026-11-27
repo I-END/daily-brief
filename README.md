@@ -1,12 +1,12 @@
 # 每日简报 / Daily Brief
 
-每天早上（美东 6–7 点）自动做一份中美热点简报：
+每天早上（默认美东 7 点后）自动做一份中美热点简报：
 
-- **抓取**：抖音、微博、知乎、B站热榜，X 美国趋势，21 个 YouTube 新闻频道的新视频，以及按话题搜的 Google News（中文区和美国区各一次）。
-- **整理**：DeepSeek 按你的话题挑出重要的事，把同一件事在不同平台、不同语言的报道合并成一条，用中英文各写一两句话，附上主要来源链接。
+- **抓取**：抖音、微博、知乎、B站热榜，X 美国趋势，21 个 YouTube 新闻频道的新视频，按话题搜的 Google News（中文区和美国区各一次），以及 GitHub 今日热门项目、本周新项目和热门 agent skill（skills.sh）。
+- **整理**：DeepSeek 按你的话题挑出重要的事，把同一件事在不同平台、不同语言的报道合并成一条，用中英文各写一两句话，附上主要来源链接；GitHub 项目各写一句「这是做什么的」。
 - **发布**：生成网页（右上角「中 / EN」一键切换），推一张卡片到飞书群，手机就会收到。
 
-整个过程在 GitHub 上免费运行，电脑关机也照常更新。
+整个过程在 GitHub 的服务器上免费运行，**电脑关机也照常更新**。
 
 ---
 
@@ -36,24 +36,54 @@ powershell -ExecutionPolicy Bypass -File scripts\setup-github.ps1
 
 ---
 
-## 日常怎么改
+## 设置页（改功能和偏好）
 
-所有设置都在 `config/` 文件夹，可以直接在 GitHub 网页上点文件 → 铅笔图标修改 → Commit，第二天生效。
+日报网页右上角的齿轮（或页面最底下的「设置」链接）打开设置页，手机上也能用：
+
+- **话题**：每个话题开/关；添加新话题（填中英文名和关键词就行）
+- **信息来源**：抖音、微博、知乎、B站、X、YouTube、Google News、GitHub 各自开/关
+- **篇幅**：每个话题几条、必知几条、飞书卡片几条、GitHub 三个列表各几个
+- **推送**：每天几点后推送（美东时间）、飞书推送开/关、网页默认语言
+- **马上执行**：现在重新生成今天的日报、测试飞书推送
+
+改完点底部「保存设置」，下一次生成时生效。
+
+**第一次用要连接 GitHub**（因为保存其实是往仓库里改 `config/preferences.json`）。设置页上有步骤，简单说就是：
+1. 打开 [GitHub 新建 token 页面](https://github.com/settings/personal-access-tokens/new)
+2. Repository access 选 **Only select repositories** → `daily-brief`
+3. Permissions 里 **Contents** 和 **Actions** 都选 **Read and write**
+4. 生成后复制，粘到设置页点「连接」
+
+token 只存在那台设备的浏览器里，只发给 GitHub；换手机或清了浏览器数据要重新粘一次。不想用了，在设置页点「断开」，再到 GitHub 上删掉这个 token。
+
+**网页顶部的话题标签**只是在你这台设备上临时隐藏某个栏目，不影响生成。
+
+### 更细的设置（改文件）
+
+在 GitHub 网页上点文件 → 铅笔图标修改 → Commit，下一次生成时生效。
 
 | 想改什么 | 改哪里 |
 |---|---|
-| 增删话题 | `config/topics.yaml`（文件里有现成例子） |
-| 开关某个平台、改抓多少条 | `config/sources.yaml` |
-| 加减 YouTube 频道 | `config/sources.yaml` 的 `youtube.channels` |
-| 每个话题几条、必知几条、飞书卡片显示几条 | `config/settings.yaml` 的 `digest` |
-| 换 AI 模型（Claude、Gemini 等） | `config/settings.yaml` 的 `llm`，再把新 key 存进 GitHub Secrets |
+| 话题给 AI 的说明、搜索词 | `config/topics.yaml` |
+| 每个源抓多少条、YouTube 频道 | `config/sources.yaml` |
+| 换 AI 模型（任何 OpenAI 兼容接口） | `config/settings.yaml` 的 `llm`，再把新 key 存进 GitHub Secrets |
 | 换成自己的域名 | `config/settings.yaml` 的 `site.url`，再在 GitHub 仓库 Settings → Pages 绑定域名 |
-| 生成时间 | `.github/workflows/daily.yml` 的 `cron`（UTC 时间）和 `settings.yaml` 的 `run_after_hour` |
 
-**马上重新生成一次**：GitHub 仓库 → Actions → daily-brief → Run workflow（勾上「重新生成今天的日报」）。
-**只测试飞书**：同一个地方勾「只把最新一期推送到飞书」，不会调用 AI。
+### 换 DeepSeek key
 
-**网页上选话题**：点顶部的话题标签就能隐藏/显示，会记住你的选择。
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\set-deepseek-key.ps1
+```
+
+它会先拿 key 去问 DeepSeek，有效才存进 GitHub，然后马上重新生成一次。
+
+---
+
+## 什么时候运行
+
+GitHub 每小时叫醒一次程序（它的定时经常晚几个小时，所以不靠准点）。程序自己看：到没到设置里的推送时间、今天做过没有；没到或做过就几秒钟结束。所以日报一般在推送时间后 1 小时内到。GitHub 的 Actions 页面里每天会有二十几条「跳过」的记录，正常。
+
+**AI 出错时**（key 失效、余额不够、接口故障）：照样发一份「无 AI 版」——新闻原标题、热搜、GitHub 列表都有，只是没有摘要；网页和飞书卡片（变成橙色）顶上写着哪里出了错。之后每小时会再试一次 AI，成功了就换成正常版并重新推送。
 
 ---
 
@@ -84,8 +114,9 @@ python run.py --render-only   只重新生成网页
 - **小红书、Reddit**：前者必须登录才能抓，后者封锁程序访问，所以没加。
 - **热榜接口都不是官方的**：哪天某个平台改了接口，那一栏当天会空着，网页底部会写「今天没抓到：…」，其他部分照常。
 - **Google News 链接**会尽量还原成原文地址；还原不了的保留 Google 的跳转链接，点开一样会转到原文。
-- **GitHub 的定时会晚 10–30 分钟**，偶尔整次跳过；工作流设了补跑。
-- **网站是公开的**，任何知道网址的人都能看。
+- **GitHub 的定时会晚，有时晚好几个小时**；所以改成了每小时检查一次。
+- **网站是公开的**，任何知道网址的人都能看（设置页也能打开，但没有你的 token 改不了任何东西）。
+- **GitHub 本周新项目**按总星数排，偶尔会混进刷星的项目。
 
 ## 思路参考
 

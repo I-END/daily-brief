@@ -5,6 +5,8 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+from . import prefs as P
+
 WD_ZH = "一二三四五六日"
 WD_EN = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 WD_EN_LONG = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -37,7 +39,15 @@ def render_page(d, site, archive, root):
     return _env.get_template("page.html").render(d=d, site=site, archive=archive, root=root, day=day_info(d))
 
 
-def build_site(data_dir, out_dir, site):
+def render_settings(site, prefs, topics, repo):
+    cfg = {"repo": repo, "prefs": prefs, "defaults": P.DEFAULTS, "limits": P.LIMITS,
+           "topics": [{"id": t["id"], "zh": t["zh"], "en": t["en"]} for t in topics],
+           "sources": [{"id": i, "zh": zh, "en": en} for i, zh, en in P.SOURCES]}
+    return _env.get_template("settings.html").render(site=site, cfg=cfg)
+
+
+def build_site(data_dir, out_dir, site, settings_page=None):
+    """settings_page: {"prefs", "topics" (built-in), "repo"} to also write settings.html."""
     digests = load_digests(data_dir)
     if not digests:
         return None
@@ -49,4 +59,6 @@ def build_site(data_dir, out_dir, site):
         (out / "archive" / f"{d['date']}.html").write_text(render_page(d, site, archive, "../"), encoding="utf-8")
     latest = digests[-1]
     (out / "index.html").write_text(render_page(latest, site, archive, ""), encoding="utf-8")
+    if settings_page:
+        (out / "settings.html").write_text(render_settings(site, **settings_page), encoding="utf-8")
     return out / "index.html"

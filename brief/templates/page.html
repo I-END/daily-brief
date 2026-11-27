@@ -11,7 +11,7 @@
   (function () {
     var q = new URLSearchParams(location.search).get("lang"), saved = null;
     try { saved = localStorage.getItem("brief-lang"); } catch (e) {}
-    var lang = (q === "en" || q === "zh") ? q : (saved || "zh");
+    var lang = (q === "en" || q === "zh") ? q : (saved || {{ (site.default_lang or "zh")|tojson }});
     document.documentElement.setAttribute("data-lang", lang);
     document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
   })();
@@ -56,7 +56,7 @@
   .mast h1 { margin: 0; font: 800 26px/1.2 var(--serif); letter-spacing: .02em; }
   .mast p { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
   .mast .grow { flex: 1; min-width: 0; }
-  .lang { flex: none; align-self: flex-start; display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 2px; }
+  .lang { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 2px; }
   .lang button { border: 0; background: none; color: var(--muted); font: 600 14px var(--sans); padding: 6px 12px; border-radius: 999px; cursor: pointer; }
   html:not([data-lang="en"]) .lang [data-set="zh"], html[data-lang="en"] .lang [data-set="en"] { background: var(--ink); color: var(--paper); }
 
@@ -109,6 +109,26 @@
   .archive { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 8px 0 14px; }
   .archive a { color: var(--muted); }
   .archive a[aria-current] { color: var(--ink); font-weight: 700; text-decoration: none; }
+  .tools { flex: none; align-self: flex-start; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+  .gear { display: grid; place-items: center; width: 36px; height: 36px;
+          border: 1px solid var(--rule); border-radius: 50%; color: var(--muted); }
+  .gear:hover { color: var(--ink); border-color: var(--muted); }
+  .notice { margin: 18px 0 8px; padding: 14px 16px; border-left: 4px solid var(--cn); background: var(--wash); border-radius: 0 10px 10px 0; }
+  .notice strong { display: block; margin-bottom: 2px; }
+  .notice p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  /* GitHub */
+  .gh { margin-top: 16px; }
+  .gh h3 { margin: 0 0 4px; font: 800 16px var(--serif); }
+  .gh ol { margin: 0; padding: 0; list-style: none; }
+  .gh li { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  .gh li:last-child { border-bottom: 0; }
+  .gh a { font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+  .gh a:hover { text-decoration: underline; }
+  .gh .repo { color: var(--muted); font-size: 13px; margin-left: 6px; overflow-wrap: anywhere; }
+  .gh p { margin: 2px 0 0; opacity: .86; font-size: 15px; }
+  .gh small { display: flex; flex-wrap: wrap; gap: 2px 12px; color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .gh .gain { color: var(--cn); font-weight: 600; }
   .legend { display: inline-flex; align-items: center; gap: 6px; margin-right: 14px; }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -121,8 +141,13 @@
       <h1>{{ bi(site.title_zh, site.title_en) }}</h1>
       <p>{{ bi(day.long_zh, day.long_en) }}</p>
     </div>
+    <div class="tools">
     <div class="lang" role="group" aria-label="语言 / Language">
       <button type="button" data-set="zh">中</button><button type="button" data-set="en">EN</button>
+    </div>
+    <a class="gear" href="{{ root }}settings.html" title="设置 / Settings" aria-label="设置 / Settings">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    </a>
     </div>
   </header>
 
@@ -130,7 +155,18 @@
     {%- for t in d.topics if t.stories %}
     <button type="button" aria-pressed="true" data-topic="{{ t.id }}">{{ bi(t.zh, t.en) }}</button>
     {%- endfor %}
+    {%- set gh = d.github or {} %}
+    {%- if gh.trending or gh.new or gh.skills %}
+    <button type="button" aria-pressed="true" data-topic="_github">GitHub</button>
+    {%- endif %}
   </nav>
+
+  {% if d.degraded %}
+  <aside class="notice" role="status">
+    <strong>{{ bi("今天的 AI 整理失败了：" ~ d.error_zh, "Today's AI summary failed: " ~ d.error_en) }}</strong>
+    <p>{{ bi("下面是没整理过的原始标题和热搜。修好后，下一次运行会自动换成正常版。", "Below are the raw headlines and trending lists. The next run replaces them once it's fixed.") }}</p>
+  </aside>
+  {% endif %}
 
   {% if d.must_know %}
   <aside class="must">
@@ -159,6 +195,24 @@
     {%- endfor %}
   </section>
   {% endfor %}
+
+  {% if gh.trending or gh.new or gh.skills %}
+  <section class="topic" data-topic="_github">
+    <h2>{{ bi("GitHub 热门", "On GitHub") }}</h2>
+    {%- for kind, zh, en in [("trending", "今日热门项目", "Trending today"), ("new", "本周新项目", "New this week"), ("skills", "热门 skill", "Trending agent skills")] if gh[kind] %}
+    <div class="gh">
+      <h3>{{ bi(zh, en) }}</h3>
+      <ol>
+        {%- for g in gh[kind] %}
+        <li><a href="{{ g.url }}" target="_blank" rel="noopener">{{ g.name }}</a>{% if g.repo %}<span class="repo">{{ g.repo }}</span>{% endif %}
+          {%- if g.desc_zh or g.desc_en %}<p>{{ bi(g.desc_zh, g.desc_en) }}</p>{% endif %}
+          <small>{% if g.metric_zh %}<span class="{{ 'gain' if kind == 'trending' else '' }}">{{ bi(g.metric_zh, g.metric_en) }}</span>{% endif %}{% if g.lang %}<span>{{ g.lang }}</span>{% endif %}</small></li>
+        {%- endfor %}
+      </ol>
+    </div>
+    {%- endfor %}
+  </section>
+  {% endif %}
 
   {% if d.hot.cn or d.hot.us %}
   <section class="topic" data-topic="_hot">
@@ -197,7 +251,12 @@
     {% endif %}
     <p><span class="legend"><span class="dot cn"></span>{{ bi("中文或中国来源", "Chinese-language or China source") }}</span>
        <span class="legend"><span class="dot us"></span>{{ bi("英文或美国来源", "English-language or US source") }}</span></p>
+    {% if d.degraded %}
+    <p>{{ bi("未经 AI 整理，从 " ~ d.stats.item_count ~ " 条内容中直接列出，生成于 " ~ day.generated, "Not summarized by AI; listed from " ~ d.stats.item_count ~ " items, generated " ~ day.generated) }}</p>
+    {% else %}
     <p>{{ bi("由 " ~ d.stats.model ~ " 从 " ~ d.stats.item_count ~ " 条内容整理，生成于 " ~ day.generated, "Compiled by " ~ d.stats.model ~ " from " ~ d.stats.item_count ~ " items, generated " ~ day.generated) }}</p>
+    {% endif %}
+    <p><a href="{{ root }}settings.html">{{ bi("设置：话题、来源、推送时间", "Settings: topics, sources, push time") }}</a></p>
     {% if d.stats.failed_zh %}<p>{{ bi("今天没抓到：" ~ d.stats.failed_zh|join("、"), "Unavailable today: " ~ d.stats.failed_en|join(", ")) }}</p>{% endif %}
   </footer>
 </div>

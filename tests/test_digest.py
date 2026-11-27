@@ -113,3 +113,33 @@ def test_links_skip_repeated_labels():
     by_id = digest.number_items(its)
     labels = [l["label_zh"] for l in digest._links(["d1", "d2"], by_id, 3)]
     assert labels == ["抖音热榜"]
+
+
+def test_fallback_lists_headlines_per_topic(monkeypatch):
+    monkeypatch.setattr(digest, "resolve_links", lambda r: None)
+    its = items()
+    its[3]["topic"] = its[4]["topic"] = "ai_tech"
+    out = digest.fallback(its, TOPICS, DCFG, digest.llm.LLMError("HTTP 401: bad key"))
+    ai = out["topics"][0]["stories"]
+    assert [s["title_zh"] for s in ai] == ["AI 发布会", "AI launch"]  # China side first, then US
+    assert ai[0]["links"][0]["label_zh"] == "新华网"
+    assert out["degraded"] and "key" in out["error_zh"] and out["must_know"] == []
+    assert [h["url"] for h in out["hot"]["cn"]] == ["https://d/1", "https://w/1"]
+
+
+def test_degraded_page_and_card_say_what_broke(tmp_path):
+    d = {**_digest(), "degraded": True, "error_zh": "DeepSeek key 无效", "error_en": "the key is invalid",
+         "github": {"trending": [{"name": "a/b", "repo": "", "url": "https://github.com/a/b", "lang": "Go",
+                                  "desc_zh": "一个工具", "desc_en": "A tool", "metric_zh": "今天 +5 星",
+                                  "metric_en": "+5 stars today"}], "new": [], "skills": []}}
+    data = tmp_path / "data"
+    data.mkdir()
+    (data / "2026-11-22.json").write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
+    render.build_site(data, tmp_path / "site", SITE,
+                      settings_page={"prefs": {}, "topics": TOPICS, "repo": "me/daily-brief"})
+    html = (tmp_path / "site" / "index.html").read_text(encoding="utf-8")
+    assert "DeepSeek key 无效" in html and "一个工具" in html and 'data-topic="_github"' in html
+    settings = (tmp_path / "site" / "settings.html").read_text(encoding="utf-8")
+    assert "me/daily-brief" in settings and "connect-src https://api.github.com" in settings
+    card = json.dumps(feishu.build_card(d, SITE, ""), ensure_ascii=False)
+    assert "AI 整理失败" in card and "a/b" in card and '"orange"' in card
