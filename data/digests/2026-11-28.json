@@ -1,0 +1,791 @@
+{
+ "date": "2026-11-28",
+ "generated_at": "2026-11-28T02:09:50-05:00",
+ "must_know": [
+  {
+   "zh": "美国拟对进口无人机及零部件征收高达100%关税并对华加征新关税，多方表示反对。",
+   "en": "The US plans tariffs of up to 100% on imported drones and new tariffs on China, drawing widespread opposition.",
+   "topic": "us_china_world",
+   "index": 0,
+   "url": "http://paper.people.com.cn/rmrb/pc/content/202611/27/content_30193339.html"
+  },
+  {
+   "zh": "中国国常会通稿首次使用“国家队”、类“平准基金”提法，释放稳股市信号。",
+   "en": "China's State Council used the terms 'national team' and a quasi stabilization fund for the first time, signaling support for the stock market.",
+   "topic": "finance",
+   "index": 0,
+   "url": "https://tv.cctv.com/2026/11/28/VIDE9cRyKdfXbWAjrIujWIMZ261128.shtml"
+  },
+  {
+   "zh": "OpenAI反诉苹果窃取商业机密，AI竞争进一步升温。",
+   "en": "OpenAI countersued Apple over alleged trade secret theft, intensifying the AI race.",
+   "topic": "ai_tech",
+   "index": 0,
+   "url": "https://www.aljazeera.com/economy/2026/11/27/openai-countersues-apple-over-trade-secrets-as-ai-race-heats-up"
+  }
+ ],
+ "topics": [
+  {
+   "id": "ai_tech",
+   "zh": "AI与科技",
+   "en": "AI & Tech",
+   "stories": [
+    {
+     "title_zh": "OpenAI反诉苹果窃取商业机密",
+     "title_en": "OpenAI countersues Apple over trade secrets",
+     "summary_zh": "OpenAI对苹果提起反诉，指控其窃取商业机密，AI竞争进一步升温。",
+     "summary_en": "OpenAI has countersued Apple, alleging trade secret theft as competition in the AI race intensifies.",
+     "links": [
+      {
+       "url": "https://www.aljazeera.com/economy/2026/11/27/openai-countersues-apple-over-trade-secrets-as-ai-race-heats-up",
+       "label_zh": "Al Jazeera",
+       "label_en": "Al Jazeera",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "特斯拉AI5芯片量产或推迟",
+     "title_en": "Tesla AI5 chip mass production may be delayed",
+     "summary_zh": "报道称特斯拉AI5芯片难以在明年量产，在台积电产能争夺中输给谷歌和微软。",
+     "summary_en": "Tesla's AI5 chip may not enter mass production next year, reportedly losing out to Google and Microsoft in the race for TSMC capacity.",
+     "links": [
+      {
+       "url": "https://www.cls.cn/detail/2547172",
+       "label_zh": "财联社",
+       "label_en": "财联社",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "谷歌发布新一代TPU",
+     "title_en": "Google unveils new-generation TPU",
+     "summary_zh": "谷歌发布新一代TPU，有开发者认为真正重要的并非芯片本身。",
+     "summary_en": "Google released a new generation of TPUs, with some developers saying the chip itself is not the most important part.",
+     "links": [
+      {
+       "url": "https://www.infoq.cn/article/MrxlyksI1KxvEKLuCg5P",
+       "label_zh": "InfoQ.cn",
+       "label_en": "InfoQ.cn",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "三星重组芯片部门强化AI",
+     "title_en": "Samsung revamps chip division for AI edge",
+     "summary_zh": "三星电子重组芯片业务部门，以强化其在人工智能领域的竞争力。",
+     "summary_en": "Samsung Electronics has reorganized its chip division to sharpen its competitiveness in artificial intelligence.",
+     "links": [
+      {
+       "url": "https://www.kedglobal.com/corporate-strategy/newsView/ked202611270001",
+       "label_zh": "KED Global",
+       "label_en": "KED Global",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "洛杉矶学区屏蔽谷歌AI功能",
+     "title_en": "LAUSD blocks Google AI features",
+     "summary_zh": "洛杉矶联合学区屏蔽谷歌AI功能，此前谷歌威胁削减学校搜索访问权限。",
+     "summary_en": "The Los Angeles Unified School District blocked Google AI features after the tech giant threatened to cut schools' search access.",
+     "links": [
+      {
+       "url": "https://abc7.com/amp/post/lausd-blocks-google-ai-features-tech-giant-threatens-cut-schools-search-access/20091041/",
+       "label_zh": "ABC7 Los Angeles",
+       "label_en": "ABC7 Los Angeles",
+       "side": "us"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "finance",
+   "zh": "财经与市场",
+   "en": "Finance & Markets",
+   "stories": [
+    {
+     "title_zh": "国常会首提“国家队”稳股市",
+     "title_en": "China cabinet signals 'national team' to steady markets",
+     "summary_zh": "国常会通稿首次使用“国家队”、类“平准基金”提法，11月内两场国常会提及资本市场。",
+     "summary_en": "China's State Council used the terms 'national team' and a quasi 'stabilization fund' for the first time, with two meetings in November addressing capital markets.",
+     "links": [
+      {
+       "url": "https://tv.cctv.com/2026/11/28/VIDE9cRyKdfXbWAjrIujWIMZ261128.shtml",
+       "label_zh": "央视网",
+       "label_en": "央视网",
+       "side": "cn"
+      },
+      {
+       "url": "https://www.marinelink.com/blogs/blog/china-cabinet-calls-for-greater-role-by-national-team-investors-105626",
+       "label_zh": "Marine News Magazine",
+       "label_en": "Marine News Magazine",
+       "side": "us"
+      },
+      {
+       "url": "https://www.zhihu.com/question/2109697976268321407",
+       "label_zh": "知乎热榜",
+       "label_en": "Zhihu",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "日本通胀高企 12月加息预期升温",
+     "title_en": "Japan inflation keeps December rate hike in play",
+     "summary_zh": "日本关键通胀数据居高不下，市场对央行12月加息的预期进一步升温。",
+     "summary_en": "Japan's key inflation data remained elevated, strengthening expectations that the central bank will raise rates in December.",
+     "links": [
+      {
+       "url": "https://www.cls.cn/detail/2546722",
+       "label_zh": "财联社",
+       "label_en": "财联社",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "SpaceX首份财报：增收未盈利",
+     "title_en": "SpaceX revenue up but not profitable",
+     "summary_zh": "SpaceX首次公布财报，显示营收增长但尚未实现盈利。",
+     "summary_en": "SpaceX released its first-ever earnings report, showing higher revenue but no profit.",
+     "links": [
+      {
+       "url": "https://abcnews.com/Business/spacex-report-earnings-tuesday-investors-elon-musk/story?id=135326466",
+       "label_zh": "ABC News - Breaking News, Latest News and Videos",
+       "label_en": "ABC News - Breaking News, Latest News and Videos",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "央行拟降大额存单认购起点",
+     "title_en": "PBOC proposes lower threshold for large CDs",
+     "summary_zh": "央行就大额存单管理办法征求意见，个人投资人认购起点拟降至不低于10万元。",
+     "summary_en": "The People's Bank of China is seeking feedback on new large-denomination CD rules, proposing to lower the individual subscription threshold to 100,000 yuan.",
+     "links": [
+      {
+       "url": "https://www.zhihu.com/question/2109719982065940065",
+       "label_zh": "知乎热榜",
+       "label_en": "Zhihu",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "央行完善贷款罚息规则",
+     "title_en": "PBOC revises loan penalty interest rules",
+     "summary_zh": "央行将贷款罚息规则从“加收30%—50%”改为由借贷双方“协商确定”。",
+     "summary_en": "The PBOC changed loan penalty interest rules from a 30%-50% surcharge to being determined through negotiation.",
+     "links": [
+      {
+       "url": "https://finance.caixin.com/2026-11-28/102509472.html",
+       "label_zh": "财新",
+       "label_en": "财新",
+       "side": "cn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "us_china_world",
+   "zh": "中美关系与国际",
+   "en": "US-China & World",
+   "stories": [
+    {
+     "title_zh": "美国新关税措施遭多方反对",
+     "title_en": "New US tariffs draw widespread opposition",
+     "summary_zh": "美国拟对进口无人机及零部件征收高达100%关税，并对华加征新关税，中国商务部及多方表示反对。",
+     "summary_en": "The US plans tariffs of up to 100% on imported drones and components and new tariffs on China, drawing opposition from China's Commerce Ministry and others.",
+     "links": [
+      {
+       "url": "http://paper.people.com.cn/rmrb/pc/content/202611/27/content_30193339.html",
+       "label_zh": "人民日报",
+       "label_en": "人民日报",
+       "side": "cn"
+      },
+      {
+       "url": "https://www.chinadailyasia.com/article/643373",
+       "label_zh": "chinadailyhk",
+       "label_en": "chinadailyhk",
+       "side": "us"
+      },
+      {
+       "url": "https://www.cls.cn/detail/2454005",
+       "label_zh": "财联社",
+       "label_en": "财联社",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "中国暂停部分关键材料对美出口管制",
+     "title_en": "China to suspend some critical-material export curbs",
+     "summary_zh": "据报道，中国将暂停部分关键材料对美出口管制，直至明年1月。",
+     "summary_en": "China will suspend some critical-material export controls on the US until January, according to reports.",
+     "links": [
+      {
+       "url": "https://www.wsj.com/economy/trade/china-to-suspend-some-critical-material-export-curbs-to-u-s-until-january-35bc8dca",
+       "label_zh": "WSJ",
+       "label_en": "WSJ",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "泽连斯基不满特朗普称普京“朋友”",
+     "title_en": "Zelenskyy pushes back on Trump's 'friend' remark",
+     "summary_zh": "泽连斯基批评特朗普称普京为“朋友”，并敦促美国对俄施压；特朗普称普京可来美参加G20。",
+     "summary_en": "Zelenskyy criticized Trump for calling Putin a 'friend' and urged US pressure on Russia; Trump said Putin is welcome at the G20 in the US.",
+     "links": [
+      {
+       "url": "https://www.news.cn/world/20261128/673ff76136c04d6daa5be74a8aafa8a5/c.html",
+       "label_zh": "新华网",
+       "label_en": "新华网",
+       "side": "cn"
+      },
+      {
+       "url": "https://www.shobserver.com/news/detail?id=1221602",
+       "label_zh": "上观新闻",
+       "label_en": "上观新闻",
+       "side": "cn"
+      },
+      {
+       "url": "https://www.youtube.com/shorts/LeJsTT2fOxI",
+       "label_zh": "YouTube · ABC News",
+       "label_en": "YouTube · ABC News",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "特朗普对加拿大50%关税生效",
+     "title_en": "Trump's 50% tariffs on Canada take effect",
+     "summary_zh": "特朗普对加拿大加征的50%关税生效，加拿大总理卡尼誓言报复。",
+     "summary_en": "Trump's 50% tariffs on Canada took effect, with Prime Minister Carney vowing to retaliate.",
+     "links": [
+      {
+       "url": "https://abcnews.com/Business/trumps-proposed-tariffs-canada-hurtle-deadline-amid-trade/story?id=135833861",
+       "label_zh": "ABC News - Breaking News, Latest News and Videos",
+       "label_en": "ABC News - Breaking News, Latest News and Videos",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "扎波罗热核电站与霍尔木兹局势紧张",
+     "title_en": "Tensions rise over Zaporizhzhia and Hormuz",
+     "summary_zh": "核监督机构就扎波罗热核电站发出新警报；伊朗加大霍尔木兹海峡袭击。",
+     "summary_en": "The nuclear watchdog issued a new alert over the Zaporizhzhia plant, while Iran stepped up attacks in the Strait of Hormuz.",
+     "links": [
+      {
+       "url": "https://understandingwar.org/research/middle-east/iran-update-november-27-2026/",
+       "label_zh": "Institute for the Study of War",
+       "label_en": "Institute for the Study of War",
+       "side": "us"
+      },
+      {
+       "url": "https://www.al-monitor.com/originals/2026/11/iran-ramps-hormuz-attacks-testing-white-house-patience",
+       "label_zh": "Al-Monitor",
+       "label_en": "Al-Monitor",
+       "side": "us"
+      },
+      {
+       "url": "https://www.youtube.com/watch?v=447KgpcrLtI",
+       "label_zh": "YouTube · BBC News",
+       "label_en": "YouTube · BBC News",
+       "side": "us"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "china",
+   "zh": "中国要闻",
+   "en": "China",
+   "stories": [
+    {
+     "title_zh": "歼35A首次近距离静态展示",
+     "title_en": "J-35A makes first close-up static display",
+     "summary_zh": "歼35A在珠海航展首次进行近距离静态展示，引发关注。",
+     "summary_en": "The J-35A fighter jet was displayed statically up close for the first time at the Zhuhai airshow, drawing attention.",
+     "links": [
+      {
+       "url": "https://www.douyin.com/hot/2768935",
+       "label_zh": "抖音热榜",
+       "label_en": "Douyin",
+       "side": "cn"
+      },
+      {
+       "url": "https://search.bilibili.com/all?keyword=%E6%AD%BC35A%E8%90%BD%E5%9C%B0%E7%8F%A0%E6%B5%B7%E5%B0%86%E9%A6%96%E6%AC%A1%E9%9D%99%E6%80%81%E5%B1%95%E7%A4%BA",
+       "label_zh": "B站热搜",
+       "label_en": "Bilibili",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "八部门印发服务贸易“十五五”规划",
+     "title_en": "Eight departments issue services trade plan",
+     "summary_zh": "八部门联合印发服务贸易发展“十五五”规划。",
+     "summary_en": "Eight Chinese government departments jointly issued the 15th Five-Year Plan for services trade development.",
+     "links": [
+      {
+       "url": "https://www.douyin.com/hot/2768806",
+       "label_zh": "抖音热榜",
+       "label_en": "Douyin",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "国考今日开考",
+     "title_en": "China's national civil service exam begins",
+     "summary_zh": "2027年度中国国家公务员考试今日开考。",
+     "summary_en": "China's national civil service examination for 2027 started today.",
+     "links": [
+      {
+       "url": "https://www.douyin.com/hot/2768879",
+       "label_zh": "抖音热榜",
+       "label_en": "Douyin",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "酒店拒40岁以上顾客入住引争议",
+     "title_en": "Hotel's over-40 guest ban sparks debate",
+     "summary_zh": "浙江嘉兴一酒店称40岁以上不能入住是老板规定，预订平台无醒目提示，引发合法性质疑。",
+     "summary_en": "A hotel in Jiaxing, Zhejiang, said its owner set a rule barring guests over 40, with no prominent notice on booking platforms, sparking debate over legality.",
+     "links": [
+      {
+       "url": "https://www.zhihu.com/question/2109585824480236082",
+       "label_zh": "知乎热榜",
+       "label_en": "Zhihu",
+       "side": "cn"
+      }
+     ]
+    },
+    {
+     "title_zh": "济南医保直播人员辱骂咨询者",
+     "title_en": "Jinan insurance staff insults caller on livestream",
+     "summary_zh": "济南医保官方视频号工作人员误以为直播结束，骂咨询者“脑子有病”，医保局称已批评教育并要求道歉。",
+     "summary_en": "A staffer on Jinan's medical insurance livestream, thinking it had ended, insulted a caller; the bureau said it criticized and disciplined the employee and demanded an apology.",
+     "links": [
+      {
+       "url": "https://www.zhihu.com/question/2109655670127605450",
+       "label_zh": "知乎热榜",
+       "label_en": "Zhihu",
+       "side": "cn"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "us",
+   "zh": "美国要闻",
+   "en": "United States",
+   "stories": [
+    {
+     "title_zh": "特朗普官员拟在新国会前开特别会议",
+     "title_en": "Trump officials plan special meeting before new Congress",
+     "summary_zh": "特朗普官员计划在新一届国会就职前召开特别会议，加快推进总统项目。",
+     "summary_en": "Trump officials plan to hold a special meeting before the new Congress is seated to speed up the president's projects.",
+     "links": [
+      {
+       "url": "https://finance.sina.com.cn/world/2026-11-28/doc-inkafyfq5122941.shtml?finpagefr=p_108",
+       "label_zh": "新浪财经",
+       "label_en": "新浪财经",
+       "side": "cn"
+      },
+      {
+       "url": "https://www.washingtonpost.com/politics/2026/11/27/white-house-speed-trump-projects-with-special-meeting-ahead-new-congress/",
+       "label_zh": "The Washington Post",
+       "label_en": "The Washington Post",
+       "side": "us"
+      },
+      {
+       "url": "https://www.facebook.com/washingtonpost/posts/exclusive-mark-paoletta-a-white-house-official-who-leads-the-national-capital-pl/1523974189594451/",
+       "label_zh": "Facebook",
+       "label_en": "Facebook",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "白宫为“金穹”寻求50亿美元",
+     "title_en": "White House seeks $5B for Golden Dome",
+     "summary_zh": "白宫在临时拨款法案中为“金穹”导弹防御项目寻求50亿美元资金。",
+     "summary_en": "The White House is seeking $5 billion for the Golden Dome missile defense program in a stopgap spending bill.",
+     "links": [
+      {
+       "url": "https://spacenews.com/white-house-seeks-5-billion-for-golden-dome-in-stopgap-spending-bill/",
+       "label_zh": "SpaceNews",
+       "label_en": "SpaceNews",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "白宫拟界定超加工食品",
+     "title_en": "White House moves to define ultraprocessed foods",
+     "summary_zh": "白宫在MAHA计划下着手界定超加工食品。",
+     "summary_en": "The White House is moving to define ultraprocessed foods under the MAHA plan.",
+     "links": [
+      {
+       "url": "https://www.foxbusiness.com/video/6408964684112",
+       "label_zh": "Fox Business",
+       "label_en": "Fox Business",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "特朗普政府抨击白宫UFC赛事诉讼",
+     "title_en": "Trump administration blasts UFC event lawsuit",
+     "summary_zh": "特朗普政府严厉抨击试图阻止白宫UFC赛事的诉讼。",
+     "summary_en": "The Trump administration lambasted a lawsuit seeking to stop a White House UFC event.",
+     "links": [
+      {
+       "url": "https://abcnews.com/Politics/trump-administration-lambastes-lawsuit-seeking-stop-white-house/story?id=133733281",
+       "label_zh": "ABC News - Breaking News, Latest News and Videos",
+       "label_en": "ABC News - Breaking News, Latest News and Videos",
+       "side": "us"
+      }
+     ]
+    },
+    {
+     "title_zh": "DHS部长穆林后悔离开参议院",
+     "title_en": "DHS chief Mullin regrets leaving Senate",
+     "summary_zh": "据消息人士，国土安全部长马克韦恩·穆林后悔离开参议院，白宫助手对其不满。",
+     "summary_en": "DHS Secretary Markwayne Mullin regrets leaving the Senate and White House aides have soured on him, sources said.",
+     "links": [
+      {
+       "url": "https://nypost.com/2026/11/27/us-news/dhs-chief-markwayne-mullin-expresses-regret-on-leaving-senate-as-white-house-aides-sour-on-him-sources/",
+       "label_zh": "New York Post",
+       "label_en": "New York Post",
+       "side": "us"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hot": {
+  "cn": [
+   {
+    "zh": "歼35A首次近距离展示",
+    "en": "J-35A close-up display",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://www.douyin.com/hot/2768935",
+    "platforms_zh": "抖音热榜、B站热搜",
+    "platforms_en": "Douyin, Bilibili"
+   },
+   {
+    "zh": "八部门印发服务贸易“十五五”规划",
+    "en": "Services trade 15th Five-Year Plan",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://www.douyin.com/hot/2768806",
+    "platforms_zh": "抖音热榜",
+    "platforms_en": "Douyin"
+   },
+   {
+    "zh": "国考今日开考",
+    "en": "National civil service exam begins",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://www.douyin.com/hot/2768879",
+    "platforms_zh": "抖音热榜",
+    "platforms_en": "Douyin"
+   },
+   {
+    "zh": "董明珠直播训员工引争议",
+    "en": "Dong Mingzhu livestream scolding sparks debate",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://s.weibo.com/weibo?q=%E8%91%A3%E6%98%8E%E7%8F%A0%E7%9B%B4%E6%92%AD%E8%AE%AD%E5%91%98%E5%B7%A5%E5%BC%95%E4%BA%89%E8%AE%AE&t=31&band_rank=7&Refer=top",
+    "platforms_zh": "微博热搜、知乎热榜",
+    "platforms_en": "Weibo, Zhihu"
+   },
+   {
+    "zh": "澳门老人珠海养老每月补5000元",
+    "en": "Macau elderly get 5,000 yuan monthly for Zhuhai care",
+    "note_zh": "",
+    "note_en": "",
+    "url": "https://s.weibo.com/weibo?q=%23%E6%BE%B3%E9%97%A8%E8%80%81%E4%BA%BA%E5%8E%BB%E7%8F%A0%E6%B5%B7%E5%85%BB%E8%80%81%E6%AF%8F%E6%9C%88%E8%A1%A55000%E5%85%83%23&t=31&band_rank=5&Refer=top",
+    "platforms_zh": "微博热搜",
+    "platforms_en": "Weibo"
+   }
+  ],
+  "us": [
+   {
+    "zh": "卢卡·东契奇",
+    "en": "Luka Doncic",
+    "note_zh": "独行侠球星东契奇",
+    "note_en": "Mavericks star Luka Doncic",
+    "url": "https://x.com/search?q=Luka",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   },
+   {
+    "zh": "湖人",
+    "en": "Lakers",
+    "note_zh": "NBA湖人队",
+    "note_en": "NBA Lakers",
+    "url": "https://x.com/search?q=Lakers",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   },
+   {
+    "zh": "马刺",
+    "en": "Spurs",
+    "note_zh": "NBA马刺队",
+    "note_en": "NBA Spurs",
+    "url": "https://x.com/search?q=Spurs",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   },
+   {
+    "zh": "文班亚马",
+    "en": "Wemby",
+    "note_zh": "马刺球星文班亚马",
+    "note_en": "Spurs star Victor Wembanyama",
+    "url": "https://x.com/search?q=Wemby",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   },
+   {
+    "zh": "NBA杯",
+    "en": "NBA Cup",
+    "note_zh": "NBA季中锦标赛",
+    "note_en": "NBA in-season tournament",
+    "url": "https://x.com/search?q=NBA%20Cup",
+    "platforms_zh": "X 趋势",
+    "platforms_en": "X Trends"
+   }
+  ]
+ },
+ "github": {
+  "trending": [
+   {
+    "name": "elementalsouls/Claude-BugHunter",
+    "repo": "",
+    "url": "https://github.com/elementalsouls/Claude-BugHunter",
+    "lang": "Python",
+    "desc_zh": "用于漏洞挖掘与红队工作的Claude技能包",
+    "desc_en": "Claude skill bundle for bug hunting and red-team work",
+    "metric_zh": "今天 +1,608 星",
+    "metric_en": "+1,608 stars today"
+   },
+   {
+    "name": "obra/superpowers",
+    "repo": "",
+    "url": "https://github.com/obra/superpowers",
+    "lang": "Shell",
+    "desc_zh": "智能体技能框架与软件开发方法论",
+    "desc_en": "Agentic skills framework and software development methodology",
+    "metric_zh": "今天 +922 星",
+    "metric_en": "+922 stars today"
+   },
+   {
+    "name": "HKUDS/CLI-Anything",
+    "repo": "",
+    "url": "https://github.com/HKUDS/CLI-Anything",
+    "lang": "Python",
+    "desc_zh": "让所有软件支持智能体调用的CLI工具",
+    "desc_en": "Makes all software agent-native through a CLI hub",
+    "metric_zh": "今天 +666 星",
+    "metric_en": "+666 stars today"
+   },
+   {
+    "name": "jingyaogong/minimind",
+    "repo": "",
+    "url": "https://github.com/jingyaogong/minimind",
+    "lang": "Python",
+    "desc_zh": "两小时从零训练64M小语言模型",
+    "desc_en": "Train your own 64M LLM from scratch in two hours",
+    "metric_zh": "今天 +660 星",
+    "metric_en": "+660 stars today"
+   },
+   {
+    "name": "cursor/plugins",
+    "repo": "",
+    "url": "https://github.com/cursor/plugins",
+    "lang": "TypeScript",
+    "desc_zh": "Cursor插件规范与官方插件集合",
+    "desc_en": "Cursor plugin specification and official plugins",
+    "metric_zh": "今天 +243 星",
+    "metric_en": "+243 stars today"
+   },
+   {
+    "name": "firecrawl/firecrawl",
+    "repo": "",
+    "url": "https://github.com/firecrawl/firecrawl",
+    "lang": "TypeScript",
+    "desc_zh": "为智能体提供搜索与网页抓取的API",
+    "desc_en": "Search and scrape API giving agents access to data providers",
+    "metric_zh": "今天 +822 星",
+    "metric_en": "+822 stars today"
+   },
+   {
+    "name": "nginx/nginx",
+    "repo": "",
+    "url": "https://github.com/nginx/nginx",
+    "lang": "C",
+    "desc_zh": "NGINX开源官方代码仓库",
+    "desc_en": "Official NGINX open source repository",
+    "metric_zh": "今天 +146 星",
+    "metric_en": "+146 stars today"
+   },
+   {
+    "name": "openvinotoolkit/openvino",
+    "repo": "",
+    "url": "https://github.com/openvinotoolkit/openvino",
+    "lang": "C++",
+    "desc_zh": "优化与部署AI推理的开源工具包",
+    "desc_en": "Open source toolkit for optimizing and deploying AI inference",
+    "metric_zh": "今天 +151 星",
+    "metric_en": "+151 stars today"
+   }
+  ],
+  "new": [
+   {
+    "name": "Marvisak/VIctory",
+    "repo": "",
+    "url": "https://github.com/Marvisak/VIctory",
+    "lang": "Rust",
+    "desc_zh": "尝试在PC上运行GTA VI",
+    "desc_en": "An attempt at running GTA VI on PC",
+    "metric_zh": "13,884 星",
+    "metric_en": "13,884 stars"
+   },
+   {
+    "name": "trustno1-coder/VIctory-NVIDIA",
+    "repo": "",
+    "url": "https://github.com/trustno1-coder/VIctory-NVIDIA",
+    "lang": "Rust",
+    "desc_zh": "面向NVIDIA显卡优化的Xbox兼容层",
+    "desc_en": "Xbox Series compatibility layer tuned for NVIDIA RTX cards",
+    "metric_zh": "4,307 星",
+    "metric_en": "4,307 stars"
+   },
+   {
+    "name": "fxceless/victory-fork",
+    "repo": "",
+    "url": "https://github.com/fxceless/victory-fork",
+    "lang": "Rust",
+    "desc_zh": "在Windows PC上运行Xbox游戏的实验分支",
+    "desc_en": "Fork aiming to run an Xbox Series title on Windows PC",
+    "metric_zh": "3,365 星",
+    "metric_en": "3,365 stars"
+   },
+   {
+    "name": "ProjectLeonida/mandy",
+    "repo": "",
+    "url": "https://github.com/ProjectLeonida/mandy",
+    "lang": "Python",
+    "desc_zh": "GTA VI的Xbox转PC移植接口续作",
+    "desc_en": "Continuation of an Xbox-to-PC port interface for GTA VI",
+    "metric_zh": "3,013 星",
+    "metric_en": "3,013 stars"
+   },
+   {
+    "name": "nexu-io/opengame",
+    "repo": "",
+    "url": "https://github.com/nexu-io/opengame",
+    "lang": "TypeScript",
+    "desc_zh": "把编码智能体变成AI游戏工作室",
+    "desc_en": "Turns coding agents into a full-stack AI game studio",
+    "metric_zh": "2,473 星",
+    "metric_en": "2,473 stars"
+   }
+  ],
+  "skills": [
+   {
+    "name": "ai-video-generation",
+    "repo": "beltsh/superpowers",
+    "url": "https://www.skills.sh/beltsh/superpowers/ai-video-generation",
+    "lang": "",
+    "desc_zh": "通过CLI调用40多种模型生成AI视频",
+    "desc_en": "Generate AI videos with 40+ models via CLI",
+    "metric_zh": "本周 28,600 次安装",
+    "metric_en": "28,600 installs this week"
+   },
+   {
+    "name": "erkamyaman/rust-anything",
+    "repo": "",
+    "url": "https://github.com/erkamyaman/rust-anything",
+    "lang": "Rust",
+    "desc_zh": "逐步将应用重写为Rust并校验",
+    "desc_en": "Rewrite your app in Rust piece by piece, checked against original",
+    "metric_zh": "10,889 星",
+    "metric_en": "10,889 stars"
+   },
+   {
+    "name": "caru-ini/stack-diagram",
+    "repo": "",
+    "url": "https://github.com/caru-ini/stack-diagram",
+    "lang": "TypeScript",
+    "desc_zh": "一句话生成带官方图标的架构图",
+    "desc_en": "Describe your stack in a sentence, get an architecture diagram",
+    "metric_zh": "2,980 星",
+    "metric_en": "2,980 stars"
+   },
+   {
+    "name": "design-mobile-apps",
+    "repo": "designed-by-ai/skills",
+    "url": "https://www.skills.sh/designed-by-ai/skills/design-mobile-apps",
+    "lang": "",
+    "desc_zh": "设计移动应用界面并实现为代码",
+    "desc_en": "Design mobile app screens and implement them in code",
+    "metric_zh": "本周 21,200 次安装",
+    "metric_en": "21,200 installs this week"
+   },
+   {
+    "name": "patch-gg/pixelfx",
+    "repo": "",
+    "url": "https://github.com/patch-gg/pixelfx",
+    "lang": "JavaScript",
+    "desc_zh": "244个像素艺术特效及自制技能",
+    "desc_en": "244 pixel art effects plus a skill to make your own",
+    "metric_zh": "9,677 星",
+    "metric_en": "9,677 stars"
+   }
+  ]
+ },
+ "stats": {
+  "model": "deepseek-flash",
+  "item_count": 261,
+  "sources": {
+   "douyin": 30,
+   "weibo": 30,
+   "zhihu": 20,
+   "bilibili": 20,
+   "x_trends": 30,
+   "youtube": 13,
+   "news:ai_tech:zh": 12,
+   "news:ai_tech:en": 12,
+   "news:finance:zh": 12,
+   "news:finance:en": 12,
+   "news:us_china_world:zh": 12,
+   "news:us_china_world:en": 12,
+   "news:china:zh": 12,
+   "news:china:en": 12,
+   "news:us:zh": 12,
+   "news:us:en": 12,
+   "github:trending": 8,
+   "github:new": 5,
+   "github:skills": 5
+  },
+  "failed_zh": [],
+  "failed_en": []
+ }
+}
