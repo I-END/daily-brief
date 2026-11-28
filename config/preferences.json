@@ -1,33 +1,33 @@
 {
-  "push_hour": 7,
-  "feishu": true,
+  "custom_topics": [],
   "default_lang": "zh",
+  "digest": {
+    "card_per_topic": 3,
+    "must_know": 3,
+    "per_topic": 5
+  },
+  "feishu": true,
+  "github": {
+    "new": 5,
+    "skills": 5,
+    "trending": 8
+  },
+  "push_hour": 7,
+  "sources": {
+    "bilibili": true,
+    "douyin": true,
+    "github": true,
+    "google_news": true,
+    "weibo": true,
+    "x_trends": true,
+    "youtube": true,
+    "zhihu": true
+  },
   "topics": {
     "ai_tech": true,
     "finance": true,
     "us_china_world": true,
     "china": true,
     "us": true
-  },
-  "custom_topics": [],
-  "sources": {
-    "douyin": true,
-    "weibo": true,
-    "zhihu": true,
-    "bilibili": true,
-    "x_trends": true,
-    "youtube": true,
-    "google_news": true,
-    "github": true
-  },
-  "digest": {
-    "per_topic": 5,
-    "must_know": 3,
-    "card_per_topic": 3
-  },
-  "github": {
-    "trending": 8,
-    "new": 5,
-    "skills": 5
   }
 }
