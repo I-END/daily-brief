@@ -2,7 +2,8 @@ name: daily-brief
 
 on:
   schedule:
-    # GitHub 的定时常常晚好几个小时（2026 年 11 月实测晚约 9 小时），所以每小时叫一次。
+    # GitHub 的定时常常晚好几个小时，还会整小时整小时地漏（2026-11-27 一天 24 次只跑了 3 次），
+    # 所以每小时叫一次，另外可以让 cron-job.org 每小时带 tick=true 来叫（见 README「准时送达」）。
     # run.py 自己判断：没到设置里的推送时间、或今天已经做好了，就几秒钟结束。
     - cron: "23 * * * *"
   workflow_dispatch:
@@ -17,6 +18,10 @@ on:
         default: false
       push_only:
         description: "只把最新一期推送到飞书（测试飞书用）"
+        type: boolean
+        default: false
+      tick:
+        description: "当成定时来跑（没到推送时间就跳过）。给 cron-job.org 用，手动跑不用勾"
         type: boolean
         default: false
 
@@ -47,6 +52,7 @@ jobs:
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           GITHUB_TOKEN: ${{ github.token }}   # GitHub 搜索接口（本周新项目、skill）用，免费
+          BRIEF_TICK: ${{ inputs.tick }}
           SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
         run: |
           if [ "${{ inputs.fetch_only }}" = "true" ]; then

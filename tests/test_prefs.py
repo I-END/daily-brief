@@ -50,3 +50,8 @@ def test_decide():
     assert run.decide({"date": "x"}, 8, 7, scheduled=True, force=False) == "done"
     assert run.decide({"degraded": True}, 9, 7, scheduled=True, force=False) == "retry"
     assert run.decide({"date": "x"}, 3, 7, scheduled=True, force=True) == "run"
+    early = {"generated_at": "2026-11-28T02:09:50-05:00"}  # made by hand at 2 AM
+    assert run.decide(early, 8, 7, scheduled=True, force=False) == "refresh"
+    assert run.decide(early, 8, 7, scheduled=False, force=False) == "done"
+    assert run.decide(early, 5, 7, scheduled=True, force=False) == "early"
+    assert run.decide({"generated_at": "2026-11-28T07:30:00-05:00"}, 9, 7, scheduled=True, force=False) == "done"

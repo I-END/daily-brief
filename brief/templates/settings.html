@@ -176,7 +176,7 @@
 
   <section>
     <h2>{{ bi("推送", "Delivery") }}</h2>
-    <label class="row"><span>{{ bi("每天几点后推送", "Deliver after") }}<small>{{ bi("美东时间。云端每小时检查一次，一般在这个时间后 1 小时内送到。", "US Eastern. The cloud checks hourly, so it usually arrives within the hour.") }}</small></span>
+    <label class="row"><span>{{ bi("每天几点后推送", "Deliver after") }}<small>{{ bi("美东时间。只靠 GitHub 的定时可能晚一两个小时，按说明配上 cron-job.org 就准时。", "US Eastern. GitHub's own timer can run an hour or two late; add cron-job.org (see the README) to make it punctual.") }}</small></span>
       <select id="push_hour" aria-label="推送时间"></select></label>
     <label class="row"><span>{{ bi("推送到飞书", "Send to Feishu") }}</span><input type="checkbox" class="switch" id="feishu"></label>
     <div class="row"><span>{{ bi("网页默认语言", "Default page language") }}</span>

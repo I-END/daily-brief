@@ -81,7 +81,31 @@ powershell -ExecutionPolicy Bypass -File scripts\set-deepseek-key.ps1
 
 ## 什么时候运行
 
-GitHub 每小时叫醒一次程序（它的定时经常晚几个小时，所以不靠准点）。程序自己看：到没到设置里的推送时间、今天做过没有；没到或做过就几秒钟结束。所以日报一般在推送时间后 1 小时内到。GitHub 的 Actions 页面里每天会有二十几条「跳过」的记录，正常。
+GitHub 每小时叫醒一次程序。程序自己看：到没到设置里的推送时间、今天做过没有；没到或做过就几秒钟结束。Actions 页面里每天会有很多条「跳过」的记录，正常。
+
+推送时间前手动生成的那期（比如半夜点了「现在重新生成」）不算当天的早报：到了推送时间会再做一期新的、再推送一次。
+
+**问题是 GitHub 自己的定时不靠谱**：常常晚一两个小时，还会整小时地漏掉（2026-11-27 一天 24 次只跑了 3 次）。要准时，照下面「准时送达」让 cron-job.org 每小时来叫一次。
+
+### 准时送达（cron-job.org，免费，推荐）
+
+1. **建一个只给定时用的 token**：打开 <https://github.com/settings/personal-access-tokens/new>
+   - Token name 填 `cron-job`；Expiration 选最长（到期前 GitHub 会发邮件，到时换一个）
+   - Repository access → **Only select repositories** → 选 `daily-brief`
+   - Permissions → Repository permissions → **Actions** 选 **Read and write**，别的都不用开
+   - 点 Generate，复制
+   - 不要用设置页那个 token：它能改仓库内容，不该放到别的网站上。
+2. **在 <https://cron-job.org> 注册**，点 Create cronjob：
+   - URL：`https://api.github.com/repos/I-END/daily-brief/actions/workflows/daily.yml/dispatches`
+   - 执行时间：每小时一次（比如每小时第 5 分钟）
+   - 「Advanced」里：Request method 选 **POST**；Headers 加三条：
+     - `Accept` = `application/vnd.github+json`
+     - `Authorization` = `Bearer 刚复制的 token`
+     - `Content-Type` = `application/json`
+   - Request body 填：`{"ref":"main","inputs":{"tick":"true"}}`
+   - 保存后点 Test run，返回 **204** 就对了（GitHub 的 Actions 页面会多出一条记录）。
+
+`tick` 让这次运行守和 GitHub 定时一样的规矩：没到推送时间就跳过，所以改了设置页的推送时间也不用回来改它。
 
 **AI 出错时**（key 失效、余额不够、接口故障）：照样发一份「无 AI 版」——新闻原标题、热搜、GitHub 列表都有，只是没有摘要；网页和飞书卡片（变成橙色）顶上写着哪里出了错。之后每小时会再试一次 AI，成功了就换成正常版并重新推送。
 
@@ -114,7 +138,7 @@ python run.py --render-only   只重新生成网页
 - **小红书、Reddit**：前者必须登录才能抓，后者封锁程序访问，所以没加。
 - **热榜接口都不是官方的**：哪天某个平台改了接口，那一栏当天会空着，网页底部会写「今天没抓到：…」，其他部分照常。
 - **Google News 链接**会尽量还原成原文地址；还原不了的保留 Google 的跳转链接，点开一样会转到原文。
-- **GitHub 的定时会晚，有时晚好几个小时**；所以改成了每小时检查一次。
+- **GitHub 的定时会晚、会漏**；每小时检查一次能缓解，要准时请配上 cron-job.org（见「准时送达」）。
 - **网站是公开的**，任何知道网址的人都能看（设置页也能打开，但没有你的 token 改不了任何东西）。
 - **GitHub 本周新项目**按总星数排，偶尔会混进刷星的项目。
 

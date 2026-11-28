@@ -102,13 +102,17 @@ def failed_names(stats):
 
 
 def decide(existing, hour, push_hour, scheduled, force):
-    """What this run should do: 'run', 'retry' (today's no-AI edition exists), 'done' or 'early'."""
+    """What this run should do: 'run', 'retry' (today's no-AI edition exists), 'refresh' (today's was made
+    by hand before the push hour, so the morning edition is still owed), 'done' or 'early'."""
     if force:
         return "run"
-    if existing and not existing.get("degraded"):
-        return "done"
     if scheduled and hour < push_hour:
         return "early"
+    if existing and not existing.get("degraded"):
+        made = existing.get("generated_at")
+        if scheduled and made and datetime.fromisoformat(made).hour < push_hour:
+            return "refresh"
+        return "done"
     return "retry" if existing else "run"
 
 
@@ -146,8 +150,9 @@ def main():
 
     existing = json.loads(out_path.read_text(encoding="utf-8")) if out_path.exists() else None
     if not args.fetch_only:
-        what = decide(existing, now.hour, settings["push_hour"],
-                      os.environ.get("GITHUB_EVENT_NAME") == "schedule", args.force)
+        # BRIEF_TICK: an outside timer (cron-job.org) calling in, held to the same clock as GitHub's own schedule
+        scheduled = os.environ.get("GITHUB_EVENT_NAME") == "schedule" or os.environ.get("BRIEF_TICK") == "true"
+        what = decide(existing, now.hour, settings["push_hour"], scheduled, args.force)
         if what == "done":
             print(f"{today} 的日报已经生成过了，跳过（要重新生成请加 --force）")
             return 0
@@ -156,6 +161,8 @@ def main():
             return 0
         if what == "retry":
             print("今天只有无 AI 版，再试一次 AI 整理")
+        if what == "refresh":
+            print(f"今天这期是 {settings['push_hour']} 点前手动生成的，到点了，做一期新的")
 
     cache = CACHE / f"raw-{today}.json"
     if args.use_cache and cache.exists():
@@ -192,8 +199,8 @@ def main():
     if error:
         # A warning, not a failed run: the no-AI edition still goes out and says what broke.
         print(f"::warning::AI 整理失败，改发无 AI 版：{error}")
-        if existing and existing.get("degraded") and not args.force:
-            print("今天的无 AI 版已经发过了，这次不重复发")
+        if existing and not args.force:  # keep what's there (a no-AI edition already sent, or an earlier good one)
+            print("今天已经有一期了，先留着，下个小时再试")
             return 0
         body = digest.fallback(items, topics, settings["digest"], error)
     body["github"] = digest.github_view(digest.describe_github(gh_raw, None if error else llm_cfg))
